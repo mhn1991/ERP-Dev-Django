@@ -15,10 +15,23 @@ Including another URLconf
 """
 
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
+
 from login.views import showLogin, checkLogin 
 from dashboard.views import showDashboard
+from products.views import addProduct,addP,showProducts,showHome
+from invoice.views import showInvoice
+from mail.views import showInbox
+
 urlpatterns = [
+    path('', showHome),
     path('login/', showLogin),
     path('checkLogin/', checkLogin),
     path('dashboard/', showDashboard),
-]
+    path('addProduct/', addProduct),
+    path('addP/', addP),
+    path('showProducts/', showProducts),
+    path('invoice/',showInvoice),
+    path('inbox/', showInbox),
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

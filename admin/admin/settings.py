@@ -25,7 +25,7 @@ SECRET_KEY = 'o18av)nztumm6cay+a9&e#ehvt333f)xldg*548=wie%_!gz&^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['admin.eba-ehqzqpxd.us-west-2.elasticbeanstalk.com','127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'products',
     'login',
     'dashboard',
+    'mail',
+    'invoice',
+    'acounting',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),

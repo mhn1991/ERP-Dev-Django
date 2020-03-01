@@ -1,0 +1,340 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Show Products Page</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href="{% static 'assets/css/material/app.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/plugins/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show">
+		<div class="material-loader">
+			<svg class="circular" viewBox="25 25 50 50">
+				<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+			</svg>
+			<div class="message">Loading...</div>
+		</div>
+	</div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed page-with-wide-sidebar">
+		<!-- begin #header -->
+		<div id="header" class="header navbar-default">
+			<!-- begin navbar-header -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed navbar-toggle-left" data-click="sidebar-minify">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">
+					Tiles R us
+				</a>
+			</div>
+			<!-- end navbar-header --><!-- begin header-nav -->
+			<ul class="navbar-nav navbar-right">
+				<li>
+					<a href="#" data-toggle="navbar-search" class="icon">
+						<i class="material-icons">search</i>
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle icon">
+						<i class="material-icons">inbox</i>
+						<span class="label">5</span>
+					</a>
+					
+					<div class="dropdown-menu media-list dropdown-menu-right">
+						<div class="dropdown-header">NOTIFICATIONS (5)</div>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-bug media-object bg-silver-darker"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Server Error Reports <i class="fa fa-exclamation-circle text-danger"></i></h6>
+								<div class="text-muted f-s-11">3 minutes ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<img src="../assets/img/user/user-1.jpg" class="media-object" alt="" />
+								<i class="fab fa-facebook-messenger text-blue media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">John Smith</h6>
+								<p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+								<div class="text-muted f-s-11">25 minutes ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<img src="../assets/img/user/user-2.jpg" class="media-object" alt="" />
+								<i class="fab fa-facebook-messenger text-blue media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Olivia</h6>
+								<p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+								<div class="text-muted f-s-11">35 minutes ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-plus media-object bg-silver-darker"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading"> New User Registered</h6>
+								<div class="text-muted f-s-11">1 hour ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-envelope media-object bg-silver-darker"></i>
+								<i class="fab fa-google text-warning media-object-icon f-s-14"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading"> New Email From John</h6>
+								<div class="text-muted f-s-11">2 hour ago</div>
+							</div>
+						</a>
+						<div class="dropdown-footer text-center">
+							<a href="javascript:;">View more</a>
+						</div>
+					</div>
+				</li>
+				<li class="dropdown navbar-user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="d-none d-md-inline">Hi, {{user.get_username}}</span>
+						<img src="../assets/img/user/user-14.jpg" alt="" /> 
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="javascript:;" class="dropdown-item">Edit Profile</a>
+						<a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Inbox</a>
+						<a href="javascript:;" class="dropdown-item">Calendar</a>
+						<a href="javascript:;" class="dropdown-item">Setting</a>
+						<div class="dropdown-divider"></div>
+						<a href="javascript:;" class="dropdown-item">Log Out</a>
+					</div>
+				</li>
+			</ul>
+			<!-- end header navigation right -->
+			
+			<div class="search-form">
+				<button class="search-btn" type="submit"><i class="material-icons">search</i></button>
+				<input type="text" class="form-control" placeholder="Search Something..." />
+				<a href="#" class="close" data-dismiss="navbar-search"><i class="material-icons">close</i></a>
+			</div>
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar" data-disable-slide-animation="true">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						<a href="javascript:;" data-toggle="nav-profile">
+							<div class="cover with-shadow"></div>
+							<div class="image">
+								<img src="../assets/img/user/user-14.jpg" alt="" />
+							</div>
+							<div class="info">
+								<b class="caret pull-right"></b>{{ user.get_username }}
+								<small>Front end developer</small>
+							</div>
+						</a>
+					</li>
+					<li>
+						<ul class="nav nav-profile">
+							<li><a href="javascript:;"><i class="fa fa-cog"></i> Settings</a></li>
+							<li><a href="javascript:;"><i class="fa fa-pencil-alt"></i> Send Feedback</a></li>
+							<li><a href="javascript:;"><i class="fa fa-question-circle"></i> Helps</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+                    <li class="nav-header">Dashboard</li>
+                                     
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="material-icons">apps</i>
+                            <span>Category Managment</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Add</a></li>
+                            <li><a href="#">manage</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="material-icons">person</i>
+                            <span>User Managment</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Add User</a></li>
+                            <li><a href="#">Manage User</a></li>
+                            <li><a href="#">Add Group</a></li>
+                            <li><a href="#">manage Group</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="javascript:;">
+                            <i class="material-icons">insert_chart</i>
+                            <span>Statistics</span>
+                        </a>
+                    </li>
+                    
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="material-icons">lock</i>
+                            <span>Security Panel</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#">User Permissions</a></li>
+                            <li><a href="#">Group Permissions</a></li>
+                            <li><a href="#">Server Security Checks</a></li>
+                            <li><a href="#">Log Files</a></li>
+                            <li><a href="#">Failed Logins/Ban IP</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="material-icons">insert_drive_file</i>
+                            <span>Accounting Panel</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Store House Managment</a></li>
+                            <li><a href="#">Correct To Their Software For Accounting</a></li>
+                        </ul>
+                    </li>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content">
+		  <div class="panel panel-inverse">
+				<div class="panel-heading">
+					<h4 class="panel-title">WYSIHTML5</h4>
+					<div class="panel-heading-btn">
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
+				<div class="panel-body">
+				  
+
+				  <table class="table">
+				    <theader>
+				      <th>
+					Thumbnail Picture
+				      </th>
+				      <th>
+					Product name
+				      </th>
+				      <th>
+					Product Price
+				      </th>
+				      <!--
+				      <th>
+					Actions
+				      </th>
+				      -->
+				      </theader>
+				    <tbody>
+				      
+				      {% for product in proList %}
+				      <tr>
+					<!-- with image -->
+					<td class="with-img">
+					  {% if product.picture %}
+					  <img src="{{product.picture.url}}" class="img-rounded height-30">
+					  {% endif %}
+					</td>
+				
+					<td>
+					  {{product.name}}
+					</td>
+					
+					<td>
+					  {{product.price}}
+					</td>
+
+					<td class="btn-group">
+					  <a href="#" class="btn btn-white btn-sm width-90">Actions</a>
+					  <a href="#" class="btn btn-white btn-sm dropdown-toggle width-30 no-caret" data-toggle="dropdown" aria-expanded="false">
+													<span class="caret"></span>
+					  </a> 
+					    <div class="dropdown-menu dropdown-menu-right" style="">
+					      <a href="#" class="dropdown-item">Update</a>
+					      <a href="#" class="dropdown-item">Action 2</a>
+					      <a href="#" class="dropdown-item">Action 3</a>
+					      <div class="dropdown-divider"></div>
+					      <a href="/showProducts/?code={{product.code}}" class="dropdown-item">Remove</a>
+					    </div>
+					  
+					  
+					</td>
+					
+				      </tr>
+				      
+				    </tbody>
+				    {% endfor %}
+				  </table>
+
+
+				</div>
+			</div>
+		  
+		</div>
+		<!-- end #content -->
+		
+		<!-- begin theme-panel -->
+		
+		<!-- end theme-panel -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static 'assets/js/app.min.js' %}"></script>
+	<script src="{% static 'assets/js/theme/material.min.js' %}"></script>
+	<script src="{% static 'assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js' %}"></script>
+	<script src="{% static 'assets/js/demo/form-wysiwyg.demo.js' %}"></script>
+	<script src="{% static 'assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+	<!-- ================== END BASE JS ================== -->
+</body>
+</html>
