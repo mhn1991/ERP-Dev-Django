@@ -265,6 +265,16 @@
 				      <th>
 					Product Price
 				      </th>
+				      <th>
+					Author 
+				      </th>
+				      <th>
+					edited time
+				      </th>
+				      <th>
+					user edited the product
+				      </th>
+				      				      		      
 				      <!--
 				      <th>
 					Actions
@@ -278,18 +288,26 @@
 					<!-- with image -->
 					<td class="with-img">
 					  {% if product.picture %}
-					  <img src="{{product.picture.url}}" class="img-rounded height-30">
+					  <img class= "widget-img widget-img-xl rounded bg-inverse pull-left m-r-5 m-b-5" src="{{product.picture.url}}" class="img-rounded height-30">
 					  {% endif %}
 					</td>
 				
 					<td>
-					  {{product.name}}
+					  {{product.code}}
 					</td>
 					
 					<td>
 					  {{product.price}}
 					</td>
-
+					<td>
+					  {{product.Author}}
+					</td>
+					<td>
+					  {{product.edited}}
+					</td>
+					<td>
+					  {{product.editor}}
+					  </td>
 					<td class="btn-group">
 					  <a href="#" class="btn btn-white btn-sm width-90">Actions</a>
 					  <a href="#" class="btn btn-white btn-sm dropdown-toggle width-30 no-caret" data-toggle="dropdown" aria-expanded="false">

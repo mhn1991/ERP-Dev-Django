@@ -272,10 +272,16 @@
 					<input type="file" class="form-control m-b-5" name="file" onchange="adduploadbtn()"/>
 				      </div>
 				      <select class="form-control selectpicker" data-size="10" data-live-search="true" data-style="btn-info" name='category'>
-					
-					{% for cat in cats %}
-					<option>{{cat.category}}</option>
-					{% endfor %}
+											<option value="" selected>Select a Country</option>
+											<option value="AF">Afghanistan</option>
+											<option value="AL">Albania</option>
+											<option value="DZ">Algeria</option>
+											<option value="AS">American Samoa</option>
+											<option value="AD">Andorra</option>
+											<option value="AO">Angola</option>
+											<option value="AI">Anguilla</option>
+											<option value="AQ">Antarctica</option>
+											<option value="AG">Antigua and Barbuda</option>
 										</select>
                                       <textarea class="textarea form-control" id="wysihtml5"  rows="12" name='description' placeholder= "{{file}}"></textarea>
 				      <button type="submit" class="btn btn-sm btn-primary m-r-12">Save</button>
