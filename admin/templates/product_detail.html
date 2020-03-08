@@ -335,9 +335,11 @@
 						<!-- BEGIN product-info -->
 						<div class="product-info">
 							<!-- BEGIN product-info-header -->
+                         
 							<div class="product-info-header">
-							  <h1 class="product-title"><span class="badge bg-primary">41% OFF</span>{{product.name}} </h1>
-								<ul class="product-category">
+							  <h1 class="product-title"><span class="badge bg-primary">41% OFF<!--{{product.sale}}--></span>{{product.name}} </h1>
+                              <!--{{product.category}}-->
+							<!--	<ul class="product-category">
 									<li><a href="#">iPhone</a></li>
 									<li>/</li>
 									<li><a href="#">mobile phone</a></li>
@@ -345,17 +347,18 @@
 									<li><a href="#">electronics</a></li>
 									<li>/</li>
 									<li><a href="#">lifestyle</a></li>
-								</ul>
+								</ul>-->
 							</div>
 							<!-- END product-info-header -->
 							<!-- BEGIN product-warranty -->
 							<div class="product-warranty">
-								<div class="pull-right">Availability: In stock</div>
+                                <div class="pull-right">Availability: <!-- {{product.instock}}-->In stock</div>
 								<div><b>1 Year</b> Local Manufacturer Warranty</div>
 							</div>
 							<!-- END product-warranty -->
 							<!-- BEGIN product-info-list -->
-							<ul class="product-info-list">
+                        <!--    {{product.hitlist}}   -->
+						<!--	<ul class="product-info-list">
 								<li><i class="fa fa-circle"></i> 5.5" Retina HD Display with 3D Touch</li>
 								<li><i class="fa fa-circle"></i> Fingerprint-resistant oleophobic coating</li>
 								<li><i class="fa fa-circle"></i> A9 chip with 64-bit</li>
@@ -363,10 +366,10 @@
 								<li><i class="fa fa-circle"></i> New 12-megapixel iSight camera</li>
 								<li><i class="fa fa-circle"></i> 4k video recording</li>
 								<li><i class="fa fa-circle"></i> iOS 9 with Touch ID and Apple Pay</li>
-							</ul>
+							</ul>-->
 							<!-- END product-info-list -->
 							<!-- BEGIN product-social -->
-							<div class="product-social">
+						<!--	<div class="product-social">
 								<ul>
 									<li><a href="javascript:;" class="facebook" data-toggle="tooltip" data-trigger="hover" data-title="Facebook" data-placement="top"><i class="fab fa-facebook-f"></i></a></li>
 									<li><a href="javascript:;" class="twitter" data-toggle="tooltip" data-trigger="hover" data-title="Twitter" data-placement="top"><i class="fab fa-twitter"></i></a></li>
@@ -374,15 +377,16 @@
 									<li><a href="javascript:;" class="whatsapp" data-toggle="tooltip" data-trigger="hover" data-title="Whatsapp" data-placement="top"><i class="fab fa-whatsapp"></i></a></li>
 									<li><a href="javascript:;" class="tumblr" data-toggle="tooltip" data-trigger="hover" data-title="Tumblr" data-placement="top"><i class="fab fa-tumblr"></i></a></li>
 								</ul>
-							</div>
+							</div>-->
 							<!-- END product-social -->
 							<!-- BEGIN product-purchase-container -->
 							<div class="product-purchase-container">
-								<div class="product-discount">
-									<span class="discount">$869.00</span>
+                                {{product.price}}
+								<!--<div class="product-discount">
+                                    <span class="discount">$890</span>
 								</div>
 								<div class="product-price">
-									<div class="price">$749.00</div>
+									<div class="price">$749.00</div>-->
 								</div>
 								<a href="checkout_cart.html" class="btn btn-inverse btn-theme btn-lg width-200">ADD TO CART</a>
 							</div>
@@ -404,9 +408,9 @@
 						<div id="product-tab-content" class="tab-content">
 							<!-- BEGIN #product-desc -->
 							<div class="tab-pane fade active show" id="product-desc">
-								<!-- BEGIN product-desc -->
+                            <!-- BEGIN product-desc -->
                                 {{product.description}}
-							<!--	<div class="product-desc">
+                             <!--   <div class="product-desc">
 									<div class="image">
 										<img src="../assets/img/product/product-main.jpg" alt="" />
 									</div>
@@ -416,10 +420,10 @@
 											The moment you use iPhone 6s, you know you’ve never felt anything like it. With a single press, 3D Touch lets you do more than ever before. Live Photos bring your memories to life in a powerfully vivid way. And that’s just the beginning. Take a deeper look at iPhone 6s, and you’ll find innovation on every level.
 										</p>
 									</div>
-								</div> >
+								</div> -->
 								<!-- END product-desc -->
 								<!-- BEGIN product-desc -->
-								<div class="product-desc right">
+							<!--	<div class="product-desc right">
 									<div class="image">
 										<img src="../assets/img/product/product-3dtouch.jpg" alt="" />
 									</div>
@@ -429,10 +433,10 @@
 											The original iPhone introduced the world to Multi-Touch, forever changing the way people experience technology. With 3D Touch, you can do things that were never possible before. It senses how deeply you press the display, letting you do all kinds of essential things more quickly and simply. And it gives you real-time feedback in the form of subtle taps from the all-new Taptic Engine.
 										</p>
 									</div>
-								</div>
+								</div> -->
 								<!-- END product-desc -->
 								<!-- BEGIN product-desc -->
-								<div class="product-desc">
+                            <!--	<div class="product-desc">
 									<div class="image">
 										<img src="../assets/img/product/product-cameras.jpg" alt="" />
 									</div>
@@ -442,10 +446,10 @@
 											The 12-megapixel iSight camera captures sharp, detailed photos. It takes brilliant 4K video, up to four times the resolution of 1080p HD video. iPhone 6s also takes selfies worthy of a self-portrait with the new 5-megapixel FaceTime HD camera. And it introduces Live Photos, a new way to relive your favorite memories. It captures the moments just before and after your picture and sets it in motion with just the press of a finger.
 										</p>
 									</div>
-								</div>
+								</div>-->
 								<!-- END product-desc -->
 								<!-- BEGIN product-desc -->
-								<div class="product-desc right">
+							<!--	<div class="product-desc right">
 									<div class="image">
 										<img src="../assets/img/product/product-technology.jpg" alt="" />
 									</div>
@@ -455,10 +459,10 @@
 											iPhone 6s is powered by the custom-designed 64-bit A9 chip. It delivers performance once found only in desktop computers. You’ll experience up to 70 percent faster CPU performance, and up to 90 percent faster GPU performance for all your favorite graphics-intensive games and apps.
 										</p>
 									</div>
-								</div>
+								</div>-->
 								<!-- END product-desc -->
 								<!-- BEGIN product-desc -->
-								<div class="product-desc">
+							<!--	<div class="product-desc">
 									<div class="image">
 										<img src="../assets/img/product/product-design.jpg" alt="" />
 									</div>
@@ -468,7 +472,7 @@
 											Innovation isn’t always obvious to the eye, but look a little closer at iPhone 6s and you’ll find it’s been fundamentally improved. The enclosure is made from a new alloy of 7000 Series aluminum — the same grade used in the aerospace industry. The cover glass is the strongest, most durable glass used in any smartphone. And a new rose gold finish joins space gray, silver, and gold.
 										</p>
 									</div>
-								</div>
+								</div>-->
 								<!-- END product-desc -->
 							</div>
 							<!-- END #product-desc -->
@@ -477,7 +481,8 @@
 								<!-- BEGIN table-responsive -->
 								<div class="table-responsive">
 									<!-- BEGIN table-product -->
-									<table class="table table-product table-striped">
+                                    <!--  {{product.information}}  -->
+								<!-- 	<table class="table table-product table-striped">
 										<thead>
 											<tr>
 												<th></th>
@@ -586,7 +591,7 @@
 												</td>
 											</tr>
 										</tbody>
-									</table>
+									</table>-->
 									<!-- END table-product -->
 								</div>
 								<!-- END table-responsive -->
@@ -599,7 +604,8 @@
 									<!-- BEGIN col-7 -->
 									<div class="col-md-7 mb-4 mb-lg-0">
 										<!-- BEGIN review -->
-										<div class="review">
+                                     <!--   {{product.rateAndReview}}  -->
+									<!--	<div class="review">
 											<div class="review-info">
 												<div class="review-icon"><img src="../assets/img/user/user-1.jpg" alt="" /></div>
 												<div class="review-rate">
@@ -621,10 +627,10 @@
 											<div class="review-message">
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in imperdiet augue. Integer non aliquam eros. Cras vehicula nec sapien pretium sagittis. Pellentesque feugiat lectus non malesuada aliquam. Etiam id tortor pretium, dictum leo at, malesuada tortor.
 											</div>
-										</div>
+										</div>-->
 										<!-- END review -->
 										<!-- BEGIN review -->
-										<div class="review">
+									<!-- 	<div class="review">
 											<div class="review-info">
 												<div class="review-icon"><img src="../assets/img/user/user-2.jpg" alt="" /></div>
 												<div class="review-rate">
@@ -646,10 +652,10 @@
 											<div class="review-message">
 												In mauris leo, maximus at pellentesque vel, pharetra vel risus. Aenean in semper velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi volutpat mattis neque, at molestie tellus ultricies quis. Ut lobortis odio nec nunc ullamcorper, vitae faucibus augue semper. Sed luctus lobortis nulla ac volutpat. Mauris blandit scelerisque sem.
 											</div>
-										</div>
+										</div>-->
 										<!-- END review -->
 										<!-- BEGIN review -->
-										<div class="review">
+									<!-- 	<div class="review">
 											<div class="review-info">
 												<div class="review-icon"><img src="../assets/img/user/user-3.jpg" alt="" /></div>
 												<div class="review-rate">
@@ -671,10 +677,10 @@
 											<div class="review-message">
 												Duis ut nunc sem. Integer efficitur, justo sit amet feugiat hendrerit, arcu nisl elementum dui, in ultricies erat quam at mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec ultrices tellus. Mauris elementum venenatis volutpat.
 											</div>
-										</div>
+										</div>-->
 										<!-- END review -->
 										<!-- BEGIN review -->
-										<div class="review">
+									<!-- 	<div class="review">
 											<div class="review-info">
 												<div class="review-icon"><img src="../assets/img/user/user-4.jpg" alt="" /></div>
 												<div class="review-rate">
@@ -696,10 +702,10 @@
 											<div class="review-message">
 												Donec vel fermentum quam. Vivamus scelerisque enim eget tristique auctor. Vivamus tempus, turpis iaculis tempus egestas, leo augue hendrerit tellus, et efficitur neque massa at neque. Aenean efficitur eleifend orci at ornare.
 											</div>
-										</div>
+										</div>-->
 										<!-- END review -->
 										<!-- BEGIN review -->
-										<div class="review">
+									<!-- 	<div class="review">
 											<div class="review-info">
 												<div class="review-icon"><img src="../assets/img/user/user-5.jpg" alt="" /></div>
 												<div class="review-rate">
@@ -721,7 +727,7 @@
 											<div class="review-message">
 												Aliquam consequat ut turpis non interdum. Integer blandit erat nec sapien sollicitudin, a fermentum dui venenatis. Nullam consequat at enim et aliquet. Cras mattis turpis quis eros volutpat tristique vel a ligula. Proin aliquet leo mi, et euismod metus placerat sit amet.
 											</div>
-										</div>
+										</div>-->
 										<!-- END review -->
 									</div>
 									<!-- END col-7 -->
@@ -784,7 +790,8 @@
 				<div class="row row-space-10">
 					<div class="col-lg-2 col-md-4">
 						<!-- BEGIN item -->
-						<div class="item item-thumbnail">
+                     <!--   {{product.similar}}  -->
+					<!-- 	<div class="item item-thumbnail">
 							<a href="product_detail.html" class="item-image">
 								<img src="../assets/img/product/product-iphone.png" alt="">
 								<div class="discount">15% OFF</div>
@@ -797,12 +804,12 @@
 								<div class="item-price">$649.00</div>
 								<div class="item-discount-price">$739.00</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- END item -->
 					</div>
 					<div class="col-lg-2 col-md-4">
 						<!-- BEGIN item -->
-						<div class="item item-thumbnail">
+					<!-- 	<div class="item item-thumbnail">
 							<a href="product_detail.html" class="item-image">
 								<img src="../assets/img/product/product-samsung-note5.png" alt="">
 								<div class="discount">32% OFF</div>
@@ -815,12 +822,12 @@
 								<div class="item-price">$599.00</div>
 								<div class="item-discount-price">$799.00</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- END item -->
 					</div>
 					<div class="col-lg-2 col-md-4">
 						<!-- BEGIN item -->
-						<div class="item item-thumbnail">
+					<!-- 	<div class="item item-thumbnail">
 							<a href="product_detail.html" class="item-image">
 								<img src="../assets/img/product/product-iphone-se.png" alt="">
 								<div class="discount">20% OFF</div>
@@ -833,12 +840,12 @@
 								<div class="item-price">$499.00</div>
 								<div class="item-discount-price">$599.00</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- END item -->
 					</div>
 					<div class="col-lg-2 col-md-4">
 						<!-- BEGIN item -->
-						<div class="item item-thumbnail">
+					<!-- 	<div class="item item-thumbnail">
 							<a href="product_detail.html" class="item-image">
 								<img src="../assets/img/product/product-zenfone2.png" alt="">
 								<div class="discount">15% OFF</div>
@@ -851,12 +858,12 @@
 								<div class="item-price">$399.00</div>
 								<div class="item-discount-price">$453.00</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- END item -->
 					</div>
 					<div class="col-lg-2 col-md-4">
 						<!-- BEGIN item -->
-						<div class="item item-thumbnail">
+					<!-- 	<div class="item item-thumbnail">
 							<a href="product_detail.html" class="item-image">
 								<img src="../assets/img/product/product-xperia-z.png" alt="">
 								<div class="discount">32% OFF</div>
@@ -869,12 +876,12 @@
 								<div class="item-price">$599.00</div>
 								<div class="item-discount-price">$799.00</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- END item -->
 					</div>
 					<div class="col-lg-2 col-md-4">
 						<!-- BEGIN item -->
-						<div class="item item-thumbnail">
+					<!-- 	<div class="item item-thumbnail">
 							<a href="product_detail.html" class="item-image">
 								<img src="../assets/img/product/product-lumia-532.png" alt="">
 								<div class="discount">20% OFF</div>
@@ -887,7 +894,7 @@
 								<div class="item-price">$99.00</div>
 								<div class="item-discount-price">$199.00</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- END item -->
 					</div>
 				</div>
