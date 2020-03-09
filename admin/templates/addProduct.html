@@ -9,13 +9,21 @@
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<link href="{% static 'assets/css/material/app.min.css' %}" rel="stylesheet" />
 	<link href="{% static 'assets/plugins/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/plugins/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
 	<!-- ================== END BASE CSS STYLE ================== -->
 </head>
 <body>
+
+
+  
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show">
 		<div class="material-loader">
@@ -261,13 +269,36 @@
 					var div = document.getElementById("photo");
 					div.appendChild(input);
 				    }
-				   </script>
+
+				    function calendar(){
+					var checkbox = document.getElementById("switcher_checkbox_1");
+					var div = document.getElementById("calendar");
+					if(!checkbox.checked){
+					    div.style.display = "none";
+					}
+					else{
+					    div.style.display = "block";
+					}
+				    }
+				   
+				  </script>
 				  <form action="/addP/" name="wysihtml5" method="POST" enctype="multipart/form-data">
 				    {% csrf_token %}
 				    <div class="col-md-12">
 				      <input type="text" class="form-control m-b-5" placeholder="Enter Title" name="title"/>
                                       <input type="text" class="form-control m-b-5" placeholder="Code" name="code" />
 				      <input type="text" class="form-control m-b-5" placeholder="Price" name="price" />
+				      <input type="number" class="form-control m-b-5" placeholder="Number" name="number" />
+				      <input type="number" class="form-control m-b-5" placeholder="Discount" name="discount" />
+				      <div class="switcher">
+					<input type="checkbox" name="switcher_checkbox_1" id="switcher_checkbox_1" onchange="calendar()">
+					<label for="switcher_checkbox_1"></label>
+				      </div>
+				      <div id="calendar" class="input-group input-daterange" style="display:none">
+					<input data-provide="datepicker" data-date-format='yyyy-mm-dd' name="startDate" placeholder="start date">
+					<span class="input-group-addon">to</span>
+					<input data-provide="datepicker" data-date-format='yyyy-mm-dd' name="endDate" placeholder="end date">
+				      </div>
 				      <div id="photo">
 					<input type="file" class="form-control m-b-5" name="file" onchange="adduploadbtn()"/>
 				      </div>
@@ -303,6 +334,9 @@
 	<script src="{% static 'assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js' %}"></script>
 	<script src="{% static 'assets/js/demo/form-wysiwyg.demo.js' %}"></script>
 	<script src="{% static 'assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+	<script src="{% static 'assets/plugins/moment/min/moment.min.js' %}"></script>
+	<script src="{% static 'assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+	<script src="{% static 'assets/plugins/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
 	<!-- ================== END BASE JS ================== -->
 </body>
 </html>

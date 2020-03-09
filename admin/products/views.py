@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect 
 from django.contrib.auth.decorators import login_required
-from .models import Product,Images,Category
+from .models import Product,Images,Category,RateComments
 
 @login_required
 def addProduct(request, *args,**kwargs):
@@ -14,11 +14,15 @@ def addP(request, *args,**kwargs):
         title = request.POST['title']
         code = request.POST['code']
         price = request.POST['price']
+        number = request.POST['number']
         category = request.POST['category']
+        discount = request.POST['discount']
         #pic = request.FILES['file']
         files = request.FILES.getlist('file')
         description = request.POST['description']
         user = request.user.username
+        discountStartDate = request.POST['startDate']
+        discountEndDate = request.POST['endDate']
         # saving in the db
         p = Product()
         p.name = title
@@ -29,6 +33,10 @@ def addP(request, *args,**kwargs):
         p.rates = 4
         p.picture = files[0]
         p.editor = user
+        p.number = number
+        p.discount = discount
+        p.discountStartDate = discountStartDate
+        p.discountEndDate = discountEndDate
         p.save()
         for f in files:
             instance = Images(img=f,code=p)
