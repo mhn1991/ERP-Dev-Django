@@ -33,9 +33,12 @@ class Product(models.Model):
 
 class RateComments(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    name    = models.TextField(blank=True,null=True)
+    title   = models.TextField(blank=True,null=True)
     rate    = models.DecimalField(null=True,decimal_places=1,max_digits=2)
     comment = models.TextField(blank=True,null=True) 
+    date    = models.DateField(auto_now_add=True)
     
 class Images(models.Model):
     code = models.ForeignKey(Product,on_delete=models.CASCADE)
-    img = models.ImageField(upload_to=upload_location,null=True,blank=True)
+    img  = models.ImageField(upload_to=upload_location,null=True,blank=True)

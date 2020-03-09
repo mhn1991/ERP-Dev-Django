@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect 
 from django.contrib.auth.decorators import login_required
 from .models import Product,Images,Category,RateComments
+from django.shortcuts import redirect
 
 @login_required
 def addProduct(request, *args,**kwargs):
@@ -78,9 +79,27 @@ def showProductsClient(request, *args,**kwargs):
 #product page todo!
 def showProductPage(request, *args,**kwargs):
     if request.method == "GET":
-        images = Images.objects.filter(code=request.GET.get('code'))
-        products = Product.objects.get(code=request.GET.get('code'))
-    return render(request, "product_detail.html",{'images':images,'product':products})
+        code     = request.GET.get('code')
+        images   = Images.objects.filter(code=code)
+        products = Product.objects.get(code=code)
+        comments = RateComments.objects.filter(product=code) 
+    return render(request, "product_detail.html",{'images':images,
+                                                  'product':products,
+                                                  'comments':comments})
 
+
+def saveReview(request, *args,**kwargs):
+    if request.method == "POST":
+        code    = request.POST['code']
+        product = Product.objects.get(code=code)
+        name    = request.POST['user']
+        title   = request.POST['title']
+        comment = request.POST['comment']
+        rate    = request.POST['rate']
+        
+    instance = RateComments(product=product,name=name,title=title,rate=0,comment=comment)
+    instance.save()
+    return redirect("/productDetail/?code="+code)
+        
 def showHome(request, *args,**kwargs):
     return render(request, "index.html",{}) 

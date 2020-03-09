@@ -604,8 +604,8 @@
 									<!-- BEGIN col-7 -->
 									<div class="col-md-7 mb-4 mb-lg-0">
 										<!-- BEGIN review -->
-                                     <!--   {{product.rateAndReview}}  -->
-									<!--	<div class="review">
+										{% for coment in comments %}
+										<div class="review">
 											<div class="review-info">
 												<div class="review-icon"><img src="../assets/img/user/user-1.jpg" alt="" /></div>
 												<div class="review-rate">
@@ -618,17 +618,18 @@
 													</ul>
 													(4/5)
 												</div>
-												<div class="review-name">Terry</div>
-												<div class="review-date">24/05/2016 7:40am</div>
+												<div class="review-name">{{coment.name}}</div>
+												<div class="review-date">{{coment.date}}</div>
 											</div>
 											<div class="review-title">
-												What does “SIM-free” mean?
+												{{coment.title}}
 											</div>
 											<div class="review-message">
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in imperdiet augue. Integer non aliquam eros. Cras vehicula nec sapien pretium sagittis. Pellentesque feugiat lectus non malesuada aliquam. Etiam id tortor pretium, dictum leo at, malesuada tortor.
+												{{coment.comment}}
 											</div>
 										</div>-->
 										<!-- END review -->
+										{% endfor %}
 										<!-- BEGIN review -->
 									<!-- 	<div class="review">
 											<div class="review-info">
@@ -735,19 +736,20 @@
 									<div class="col-md-5">
 										<!-- BEGIN review-form -->
 										<div class="review-form">
-											<form action="product_detail.html" name="review_form" method="POST">
+										  <form action="/saveReview/" name="review_form" method="POST">
+										    {% csrf_token %}
 												<h2>Write a review</h2>
 												<div class="form-group">
 													<label for="name">Name <span class="text-danger">*</span></label>
-													<input type="text" class="form-control" id="name" />
+													<input type="text" class="form-control" id="name" name="user"/>
 												</div>
 												<div class="form-group">
 													<label for="email">Title <span class="text-danger">*</span></label>
-													<input type="text" class="form-control" id="email" />
+													<input type="text" class="form-control" id="email" name="title"/>
 												</div>
 												<div class="form-group">
 													<label for="review">Review <span class="text-danger">*</span></label>
-													<textarea class="form-control" rows="8" id="review"></textarea>
+													<textarea class="form-control" rows="8" id="review" name="comment"></textarea>
 												</div>
 												<div class="form-group">
 													<label for="email">Rating  <span class="text-danger">*</span></label>
@@ -761,7 +763,7 @@
 															<span class="rating-comment-tooltip">Click to rate</span>
 														</span>
 													</div>
-													<select name="rating" class="hide">
+													<select  class="hide" name="rate">
 														<option value="2">2</option>
 														<option value="4">4</option>
 														<option value="6">6</option>
@@ -769,6 +771,7 @@
 														<option value="10">10</option>
 													</select>
 												</div>
+												<input value="{{product.code}}" name="code" class="hide"/>
 												<button type="submit" class="btn btn-inverse btn-theme btn-lg">Submit Review</button>
 											</form>
 										</div>
@@ -1008,7 +1011,7 @@
 					<img src="../assets/img/payment/payment-method.png" alt="" />
 				</div>
 				<div class="copyright">
-					Copyright &copy; 2019 SeanTheme. All rights reserved.
+					<!--Copyright &copy; 2019 SeanTheme. All rights reserved.-->
 				</div>
 			</div>
 			<!-- END container -->
@@ -1018,25 +1021,7 @@
 	<!-- END #page-container -->
 
 	<!-- begin theme-panel -->
-	<div class="theme-panel">
-		<a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-		<div class="theme-panel-content">
-			<ul class="theme-list clearfix">
-				<li><a href="javascript:;" class="bg-red" data-theme="red" data-theme-file="../assets/css/e-commerce/theme/red.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-pink" data-theme="pink" data-theme-file="../assets/css/e-commerce/theme/pink.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Pink" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-orange" data-theme="orange" data-theme-file="../assets/css/e-commerce/theme/orange.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-yellow" data-theme="yellow" data-theme-file="../assets/css/e-commerce/theme/yellow.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Yellow" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-lime" data-theme="lime" data-theme-file="../assets/css/e-commerce/theme/lime.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Lime" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-green" data-theme="green" data-theme-file="../assets/css/e-commerce/theme/green.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Green" data-original-title="" title="">&nbsp;</a></li>
-				<li class="active"><a href="javascript:;" class="bg-teal" data-theme-file="" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-aqua" data-theme="aqua" data-theme-file="../assets/css/e-commerce/theme/aqua.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Aqua" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-blue" data-theme="blue" data-theme-file="../assets/css/e-commerce/theme/blue.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-purple" data-theme="purple" data-theme-file="../assets/css/e-commerce/theme/purple.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-indigo" data-theme="indigo" data-theme-file="../assets/css/e-commerce/theme/indigo.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Indigo" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-black" data-theme="black" data-theme-file="../assets/css/e-commerce/theme/black.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black" data-original-title="" title="">&nbsp;</a></li>
-			</ul>
-		</div>
-	</div>
+	
 	<!-- end theme-panel -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
