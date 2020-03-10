@@ -337,7 +337,13 @@
 							<!-- BEGIN product-info-header -->
                          
 							<div class="product-info-header">
-							  <h1 class="product-title"><span class="badge bg-primary">41% OFF<!--{{product.sale}}--></span>{{product.name}} </h1>
+                                
+							  <h1 class="product-title">
+                                  {% if product.discount > 0 %}
+                                  <span class="badge bg-primary">{{product.discount}}%
+                                      {% endif %}
+                                  </span>{{product.name}} </h1>
+                              
                               <!--{{product.category}}-->
 							<!--	<ul class="product-category">
 									<li><a href="#">iPhone</a></li>
@@ -349,10 +355,15 @@
 									<li><a href="#">lifestyle</a></li>
 								</ul>-->
 							</div>
+                            
 							<!-- END product-info-header -->
 							<!-- BEGIN product-warranty -->
 							<div class="product-warranty">
-                                <div class="pull-right">Availability: <!-- {{product.instock}}-->In stock</div>
+                                {% if product.number > 0 %}
+                                <div class="pull-right">Availability: In stock</div>
+                                {% else %}
+                                <div class="pull-right"><font color="red">Availability: Not in stock </font></div>
+                                {% endif %}
 								<div><b>1 Year</b> Local Manufacturer Warranty</div>
 							</div>
 							<!-- END product-warranty -->
@@ -381,13 +392,22 @@
 							<!-- END product-social -->
 							<!-- BEGIN product-purchase-container -->
 							<div class="product-purchase-container">
-                                {{product.price}}
 								<!--<div class="product-discount">
                                     <span class="discount">$890</span>
-								</div>
-								<div class="product-price">
-									<div class="price">$749.00</div>-->
-								</div>
+								</div>-->
+                                {% if product.discount > 0 %}
+                                <div class="product-discount">
+                                    <span class="discount">${{product.price}}</span>
+                                </div>
+                                <div class="product-price">
+                                    <div class="price">${{product.price}}*(100-{{product.discount}})/100</div>
+                                </div>
+                                {% else %}
+                                <div class="product-price">
+                                    <div class="price">${{product.price}}</div>
+                                </div>
+                                {% endif %}
+								
 								<a href="checkout_cart.html" class="btn btn-inverse btn-theme btn-lg width-200">ADD TO CART</a>
 							</div>
 							<!-- END product-purchase-container -->
@@ -627,7 +647,7 @@
 											<div class="review-message">
 												{{coment.comment}}
 											</div>
-										</div>-->
+										</div>
 										<!-- END review -->
 										{% endfor %}
 										<!-- BEGIN review -->
