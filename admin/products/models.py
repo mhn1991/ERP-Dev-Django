@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 
@@ -26,11 +27,17 @@ class Product(models.Model):
     discountStartDate = models.DateField()
     discountEndDate   = models.DateField()
     rates             = models.DecimalField(decimal_places=1,max_digits=2)
+    information       = JSONField()
 
     def __str__(self):
         return self.code
 
 
+class Template(models.Model):
+    name = models.TextField(primary_key=True)
+    content = JSONField()
+    category = models.TextField(blank=True,null=True)
+    
 class RateComments(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     name    = models.TextField(blank=True,null=True)

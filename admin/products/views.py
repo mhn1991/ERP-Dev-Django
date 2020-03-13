@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect 
 from django.contrib.auth.decorators import login_required
-from .models import Product,Images,Category,RateComments
+from .models import Product,Images,Category,RateComments,Template
 from django.shortcuts import redirect
+from django.http import HttpResponse
+import json
 
 @login_required
 def addProduct(request, *args,**kwargs):
@@ -69,6 +71,30 @@ def addCategory(request, *args,**kwargs):
         instance = Category(category = request.POST['name'])
         instance.save()
     return render(request, "categoryManagement.html",{})
+
+
+@login_required
+def addtemplate(request, *args,**kwargs):
+    if request.method ==  "GET":
+        return render(request, "templateManagment.html",{})
+    elif request.method == "POST":
+        data = json.loads(request.body)
+        data.pop(0)
+        name = data[0]['value']
+        data.pop(0)
+        final = {}
+        # make final json file to store in the db 
+        for i in range(len(data)):
+            if i%2 == 0:
+                key = data[i]['name']
+                value = data[i+1]['name']
+                final[key] = value
+        instance = Template(name=name, content=final)
+        instance.save()
+        return HttpResponse(status=200)
+    else:
+        return HttpResponse(status=404)
+
 
 
 #show products
