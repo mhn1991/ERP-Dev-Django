@@ -3,13 +3,23 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Product,Images,Category,RateComments,Template
 from django.shortcuts import redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 import json
 
 @login_required
 def addProduct(request, *args,**kwargs):
     cats = Category.objects.all()
-    return render(request, "addProduct.html",{'cats':cats})
+    templates = Template.objects.all()
+    return render(request, "addProduct.html",{'cats':cats,'templates':templates})
+
+
+@login_required
+def getTemplate(request, *args,**kwargs):
+    if request.method == "POST":
+        name = request.POST['name']
+        template = Template.objects.values('content').get(name=name)
+        return JsonResponse(template['content'])
+
 
 @login_required
 def addP(request, *args,**kwargs):
@@ -20,12 +30,12 @@ def addP(request, *args,**kwargs):
         number = request.POST['number']
         category = request.POST['category']
         discount = request.POST['discount']
-        #pic = request.FILES['file']
         files = request.FILES.getlist('file')
         description = request.POST['description']
         user = request.user.username
         discountStartDate = request.POST['startDate']
         discountEndDate = request.POST['endDate']
+        template = request.POST['template']
         # saving in the db
         p = Product()
         p.name = title
@@ -40,6 +50,7 @@ def addP(request, *args,**kwargs):
         p.discount = discount
         p.discountStartDate = discountStartDate
         p.discountEndDate = discountEndDate
+        p.information = Template.objects.get(name=template)
         p.save()
         for f in files:
             instance = Images(img=f,code=p)

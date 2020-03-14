@@ -10,6 +10,11 @@ class Category(models.Model):
     parent   = models.TextField(blank=True,null=True) 
     category = models.TextField(primary_key=True)
 
+class Template(models.Model):
+    name = models.TextField(primary_key=True)
+    content = JSONField()
+    category = models.TextField(blank=True,null=True)
+    
 # Create your models here.
 class Product(models.Model):
     name              = models.TextField(blank=True,null=True)
@@ -27,17 +32,12 @@ class Product(models.Model):
     discountStartDate = models.DateField()
     discountEndDate   = models.DateField()
     rates             = models.DecimalField(decimal_places=1,max_digits=2)
-    information       = JSONField()
+    information       = models.ForeignKey(Template,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.code
 
 
-class Template(models.Model):
-    name = models.TextField(primary_key=True)
-    content = JSONField()
-    category = models.TextField(blank=True,null=True)
-    
 class RateComments(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     name    = models.TextField(blank=True,null=True)

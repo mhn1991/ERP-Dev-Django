@@ -20,7 +20,7 @@ from django.conf import settings
 
 from login.views import showLogin, checkLogin 
 from dashboard.views import showDashboard
-from products.views import addProduct,addP,showProducts,showHome,showCategoryManagemet,addCategory,showProductsClient,showProductPage,saveReview,addtemplate
+from products.views import addProduct,addP,showProducts,showHome,showCategoryManagemet,addCategory,showProductsClient,showProductPage,saveReview,addtemplate,getTemplate
 from invoice.views import showInvoice
 from mail.views import showInbox
 
@@ -32,6 +32,7 @@ urlpatterns = [
     path('categoryManagement/',showCategoryManagemet),
     path('addCategory/',addCategory),
     path('addtemplate/',addtemplate),
+    path('getTemplate/',getTemplate),
     path('addProduct/', addProduct),
     path('addP/', addP),
     path('showProducts/', showProducts),
