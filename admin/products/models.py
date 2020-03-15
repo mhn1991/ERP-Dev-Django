@@ -29,8 +29,8 @@ class Product(models.Model):
     edited            = models.DateField(auto_now_add=True)
     editor            = models.TextField(blank=True,null=True)
     discount          = models.IntegerField()
-    discountStartDate = models.DateField()
-    discountEndDate   = models.DateField()
+    discountStartDate = models.DateField(blank=True,null=True)
+    discountEndDate   = models.DateField(blank=True,null=True)
     rates             = models.DecimalField(decimal_places=1,max_digits=2)
     information       = models.ForeignKey(Template,on_delete=models.CASCADE)
 
