@@ -21,9 +21,6 @@
 	<!-- ================== END BASE CSS STYLE ================== -->
 </head>
 <body>
-
-
-  
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show">
 		<div class="material-loader">
@@ -149,103 +146,7 @@
 		</div>
 		<!-- end #header -->
 		
-		<!-- begin #sidebar -->
-		<div id="sidebar" class="sidebar" data-disable-slide-animation="true">
-			<!-- begin sidebar scrollbar -->
-			<div data-scrollbar="true" data-height="100%">
-				<!-- begin sidebar user -->
-				<ul class="nav">
-					<li class="nav-profile">
-						<a href="javascript:;" data-toggle="nav-profile">
-							<div class="cover with-shadow"></div>
-							<div class="image">
-								<img src="../assets/img/user/user-14.jpg" alt="" />
-							</div>
-							<div class="info">
-								<b class="caret pull-right"></b>{{ user.get_username }}
-								<small>Front end developer</small>
-							</div>
-						</a>
-					</li>
-					<li>
-						<ul class="nav nav-profile">
-							<li><a href="javascript:;"><i class="fa fa-cog"></i> Settings</a></li>
-							<li><a href="javascript:;"><i class="fa fa-pencil-alt"></i> Send Feedback</a></li>
-							<li><a href="javascript:;"><i class="fa fa-question-circle"></i> Helps</a></li>
-						</ul>
-					</li>
-				</ul>
-				<!-- end sidebar user -->
-				<!-- begin sidebar nav -->
-				<ul class="nav">
-                    <li class="nav-header">Dashboard</li>
-                                     
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="material-icons">apps</i>
-                            <span>Category Managment</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">manage</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="material-icons">person</i>
-                            <span>User Managment</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Add User</a></li>
-                            <li><a href="#">Manage User</a></li>
-                            <li><a href="#">Add Group</a></li>
-                            <li><a href="#">manage Group</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li>
-                        <a href="javascript:;">
-                            <i class="material-icons">insert_chart</i>
-                            <span>Statistics</span>
-                        </a>
-                    </li>
-                    
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="material-icons">lock</i>
-                            <span>Security Panel</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="#">User Permissions</a></li>
-                            <li><a href="#">Group Permissions</a></li>
-                            <li><a href="#">Server Security Checks</a></li>
-                            <li><a href="#">Log Files</a></li>
-                            <li><a href="#">Failed Logins/Ban IP</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="material-icons">insert_drive_file</i>
-                            <span>Accounting Panel</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Store House Managment</a></li>
-                            <li><a href="#">Correct To Their Software For Accounting</a></li>
-                        </ul>
-                    </li>
-				<!-- end sidebar nav -->
-			</div>
-			<!-- end sidebar scrollbar -->
-		</div>
-		<div class="sidebar-bg"></div>
-		<!-- end #sidebar -->
-		
+		{% include "sideBar.html" %}
 		<!-- begin #content -->
 		<div id="content" class="content">
 		  <div class="panel panel-inverse">

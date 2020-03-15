@@ -119,7 +119,8 @@ def showProductPage(request, *args,**kwargs):
         code     = request.GET.get('code')
         images   = Images.objects.filter(code=code)
         products = Product.objects.get(code=code)
-        comments = RateComments.objects.filter(product=code) 
+        comments = RateComments.objects.filter(product=code)
+        #print(products.information.content)
     return render(request, "product_detail.html",{'images':images,
                                                   'product':products,
                                                   'comments':comments})

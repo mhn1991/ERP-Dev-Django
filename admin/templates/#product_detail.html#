@@ -500,7 +500,8 @@
 							<div class="tab-pane fade" id="product-info">
 								<!-- BEGIN table-responsive -->
 								<div class="table-responsive">
-								  <!-- BEGIN table-product -->
+									<!-- BEGIN table-product -->
+                                    <!--  {{product.information}}  -->
 									<table class="table table-product table-striped">
 										<thead>
 											<tr>
