@@ -161,6 +161,7 @@
 				</div>
 				<div class="panel-body">
 				  <script>
+				    
 				    function adduploadbtn(){
 					var input = document.createElement("input");
 					input.type= "file";
@@ -175,10 +176,10 @@
 					var checkbox = document.getElementById("switcher_checkbox_1");
 					var div = document.getElementById("calendar");
 					if(!checkbox.checked){
-					    div.style.display = "none";
+					    div.setAttribute('class','input-group input-daterange hide');
 					}
 					else{
-					    div.style.display = "block";
+					    div.setAttribute('class','input-group input-daterange');
 					}
 				    }
 
@@ -242,6 +243,11 @@
 					table.appendChild(tbody);
 					div.appendChild(table);
 				    }
+
+				    $(document).ready(function() {
+					var input = document.getElementById("discount");
+					input.value = 0;
+				    });
 				    
 				  </script>
 				  <form action="/addP/" name="wysihtml5" method="POST" enctype="multipart/form-data">
@@ -251,15 +257,20 @@
                                       <input type="text" class="form-control m-b-5" placeholder="Code" name="code" />
 				      <input type="text" class="form-control m-b-5" placeholder="Price" name="price" />
 				      <input type="number" class="form-control m-b-5" placeholder="Number" name="number" />
-				      <input type="number" class="form-control m-b-5" placeholder="Discount" name="discount" />
+				      <!--<input type="number" class="form-control m-b-5" placeholder="Discount" name="discount" id="discount"/>-->
 				      <div class="switcher">
 					<input type="checkbox" name="switcher_checkbox_1" id="switcher_checkbox_1" onchange="calendar()">
-					<label for="switcher_checkbox_1"></label>
+					<label for="switcher_checkbox_1">it has discount?</label>
 				      </div>
-				      <div id="calendar" class="input-group input-daterange" style="display:none">
-					<input data-provide="datepicker" data-date-format='yyyy-mm-dd' name="startDate" placeholder="start date">
-					<span class="input-group-addon">to</span>
-					<input data-provide="datepicker" data-date-format='yyyy-mm-dd' name="endDate" placeholder="end date">
+				      <div id="calendar" class="input-group input-daterange hide" >
+					<div class="grid">
+					  <div class="row">
+					    <input type="number" class="form-control m-b-12" placeholder="Discount" name="discount" id="discount"/>
+					    <input data-provide="datepicker" data-date-format='yyyy-mm-dd' name="startDate" placeholder="start date">
+					    <span class="input-group-addon">to</span>
+					    <input data-provide="datepicker" data-date-format='yyyy-mm-dd' name="endDate" placeholder="end date">
+					  </div>
+					</div>
 				      </div>
 				      <div id="photo">
 					<input type="file" class="form-control m-b-5" name="file" onchange="adduploadbtn()"/>
