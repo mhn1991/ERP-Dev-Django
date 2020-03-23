@@ -140,4 +140,4 @@ def saveReview(request, *args,**kwargs):
     return redirect("/productDetail/?code="+code)
         
 def showHome(request, *args,**kwargs):
-    return render(request, "Home/index.html",{}) 
+    return render(request, "index.html",{})

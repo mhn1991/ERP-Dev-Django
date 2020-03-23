@@ -3,92 +3,88 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Coming Soon Page</title>
+	<title>E-Commerce Front End Theme</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-	<link href="{% static 'assets/css/material/app.min.css' %}" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="{% static 'assets/css/e-commerce/app.min.css' %}" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE CSS STYLE ================== -->
-	<link href="{% static 'assets/plugins/countdown/jquery.countdown.css' %}" rel="stylesheet" />
-	<!-- ================== END PAGE CSS STYLE ================== -->
 </head>
-<body class="bg-white pace-top">
-	<!-- begin #page-loader -->
-	<div id="page-loader" class="fade show">
-		<div class="material-loader">
-			<svg class="circular" viewBox="25 25 50 50">
-				<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
-			</svg>
-			<div class="message">Loading...</div>
+<body>
+	<!-- BEGIN #page-container -->
+	<div id="page-container" class="fade show">
+		<!-- BEGIN #top-nav -->
+        {% include "client/topNav.html" %}
+		<!-- END #top-nav -->
+		<!-- BEGIN #header -->
+        {% include "client/header.html" %}
+		<!-- END #header -->
+		
+		<!-- BEGIN #slider -->
+        {% include "client/slider.html" %}
+		<!-- END #slider -->
+		
+		<!-- BEGIN #promotions -->
+        {% include "client/promotions.html" %}
+        <!-- END #promotions -->
+		
+		<!-- BEGIN #trending-items -->
+        {% include "client/trending.html" %}
+        <!-- END #trending-items -->
+		
+		<!-- BEGIN #tiles-list -->
+        {% include "client/tableList1.html" %}
+        <!-- END #tiles-list -->
+		
+		<!-- BEGIN #tablet-list -->
+        {% include "client/tableList2.html" %}
+        <!-- END #tablet-list -->
+		
+		<!-- BEGIN #policy -->
+        {% include "client/policy.html" %}
+        <!-- END #policy -->
+		
+		<!-- BEGIN #subscribe -->
+        {% include "client/subscribe.html" %}
+        <!-- END #subscribe -->
+		
+		<!-- BEGIN #footer -->
+		{% include "client/footer.html" %}
+		<!-- END #footer -->
+		
+		<!-- BEGIN #down-nav -->
+        {% include "client/downNav.html" %}
+        <!-- END #down-nav -->
+	</div>
+	<!-- END #page-container -->
+
+	<!-- begin theme-panel -->
+	<div class="theme-panel">
+		<a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+		<div class="theme-panel-content">
+			<ul class="theme-list clearfix">
+				<li><a href="javascript:;" class="bg-red" data-theme="red" data-theme-file="../assets/css/e-commerce/theme/red.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-pink" data-theme="pink" data-theme-file="../assets/css/e-commerce/theme/pink.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Pink" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-orange" data-theme="orange" data-theme-file="../assets/css/e-commerce/theme/orange.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-yellow" data-theme="yellow" data-theme-file="../assets/css/e-commerce/theme/yellow.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Yellow" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-lime" data-theme="lime" data-theme-file="../assets/css/e-commerce/theme/lime.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Lime" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-green" data-theme="green" data-theme-file="../assets/css/e-commerce/theme/green.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Green" data-original-title="" title="">&nbsp;</a></li>
+				<li class="active"><a href="javascript:;" class="bg-teal" data-theme-file="" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-aqua" data-theme="aqua" data-theme-file="../assets/css/e-commerce/theme/aqua.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Aqua" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-blue" data-theme="blue" data-theme-file="../assets/css/e-commerce/theme/blue.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-purple" data-theme="purple" data-theme-file="../assets/css/e-commerce/theme/purple.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-indigo" data-theme="indigo" data-theme-file="../assets/css/e-commerce/theme/indigo.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Indigo" data-original-title="" title="">&nbsp;</a></li>
+				<li><a href="javascript:;" class="bg-black" data-theme="black" data-theme-file="../assets/css/e-commerce/theme/black.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black" data-original-title="" title="">&nbsp;</a></li>
+			</ul>
 		</div>
 	</div>
-	<!-- end #page-loader -->
-	
-	<!-- begin #page-container -->
-	<div id="page-container" class="page-container fade">
-	  <!-- begin coming-soon -->
-		<div class="coming-soon">
-			<!-- begin coming-soon-header -->
-			<div class="coming-soon-header">
-				<div class="bg-cover"></div>
-				<div class="brand">
-					<span class="logo"></span> <b>TILES R</b> US
-				</div>
-				<div class="desc">
-					Our website is almost there and it’s rebuilt from scratch! A lot of great new features <br />and improvements are coming.
-				</div>
-				<div class="timer">
-					<div id="timer"></div>
-				</div>
-			</div>
-			<!-- end coming-soon-header -->
-			<!-- begin coming-soon-content -->
-			<div class="coming-soon-content">
-				<div class="desc">
-					We are launching a closed <b>beta</b> soon!<br /> Sign up to try it before others and be the first to know when we <b>launch</b>.
-				</div>
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Email Address" />
-					<div class="input-group-append">
-						<button type="button" class="btn btn-inverse">Notify Me</button>
-					</div>
-				</div>
-				<p class="help-block m-b-25"><i>We don't spam. Your email address is secure with us.</i></p>
-				<p>
-					Follow us on 
-					<a href="javascript:;" class="text-inverse"><i class="fab fa-twitter fa-lg fa-fw text-info"></i> Twitter</a> and 
-					<a href="javascript:;" class="text-inverse"><i class="fab fa-facebook-square fa-lg fa-fw text-blue"></i> Facebook</a>
-				</p>
-			</div>
-			<!-- end coming-soon-content -->
-		</div>
-		<!-- end coming-soon -->
-		
-		<!-- begin theme-panel -->
-		
-		<!-- end theme-panel -->
-		
-		<!-- begin scroll to top btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-		<!-- end scroll to top btn -->
-	</div>
-	<!-- end page container -->
+	<!-- end theme-panel -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{% static 'assets/js/app.min.js' %}"></script>
-	<script src="{% static 'assets/js/theme/material.min.js' %}"></script>
+	<script src="{% static 'assets/js/e-commerce/app.min.js' %}"></script>
 	<!-- ================== END BASE JS ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="{% static 'assets/plugins/countdown/jquery.plugin.min.js' %}"></script>
-	<script src="{% static 'assets/plugins/countdown/jquery.countdown.min.js' %}"></script>
-	<script src="{% static 'assets/js/demo/coming-soon.demo.js' %}"></script>
-	<!-- ================== END PAGE LEVEL JS ================== -->
 </body>
 </html>
