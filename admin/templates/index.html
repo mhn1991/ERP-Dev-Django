@@ -1,90 +1,478 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<title>E-Commerce Front End Theme</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="{% static 'assets/css/e-commerce/app.min.css' %}" rel="stylesheet" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-</head>
-<body>
-	<!-- BEGIN #page-container -->
-	<div id="page-container" class="fade show">
-		<!-- BEGIN #top-nav -->
-        {% include "client/topNav.html" %}
-		<!-- END #top-nav -->
-		<!-- BEGIN #header -->
-        {% include "client/header.html" %}
-		<!-- END #header -->
-		
-		<!-- BEGIN #slider -->
-        {% include "client/slider.html" %}
-		<!-- END #slider -->
-		
-		<!-- BEGIN #promotions -->
-    <!--    {% include "client/promotions.html" %} -->
-        <!-- END #promotions -->
-		
-		<!-- BEGIN #trending-items -->
-        {% include "client/trending.html" %}
-        <!-- END #trending-items -->
-		
-		<!-- BEGIN #tiles-list -->
-        {% include "client/tableList1.html" %}
-        <!-- END #tiles-list -->
-		
-		<!-- BEGIN #tablet-list -->
-        {% include "client/tableList2.html" %}
-        <!-- END #tablet-list -->
-		
-		<!-- BEGIN #policy -->
-        {% include "client/policy.html" %}
-        <!-- END #policy -->
-		
-		<!-- BEGIN #subscribe -->
-        {% include "client/subscribe.html" %}
-        <!-- END #subscribe -->
-		
-		<!-- BEGIN #footer -->
-		{% include "client/footer.html" %}
-		<!-- END #footer -->
-		
-		<!-- BEGIN #down-nav -->
-        {% include "client/downNav.html" %}
-        <!-- END #down-nav -->
-	</div>
-	<!-- END #page-container -->
+<!doctype html>
+<html class="no-js" lang="en">
 
-	<!-- begin theme-panel -->
-	<div class="theme-panel">
-		<a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-		<div class="theme-panel-content">
-			<ul class="theme-list clearfix">
-				<li><a href="javascript:;" class="bg-red" data-theme="red" data-theme-file="../assets/css/e-commerce/theme/red.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-pink" data-theme="pink" data-theme-file="../assets/css/e-commerce/theme/pink.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Pink" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-orange" data-theme="orange" data-theme-file="../assets/css/e-commerce/theme/orange.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-yellow" data-theme="yellow" data-theme-file="../assets/css/e-commerce/theme/yellow.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Yellow" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-lime" data-theme="lime" data-theme-file="../assets/css/e-commerce/theme/lime.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Lime" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-green" data-theme="green" data-theme-file="../assets/css/e-commerce/theme/green.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Green" data-original-title="" title="">&nbsp;</a></li>
-				<li class="active"><a href="javascript:;" class="bg-teal" data-theme-file="" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-aqua" data-theme="aqua" data-theme-file="../assets/css/e-commerce/theme/aqua.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Aqua" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-blue" data-theme="blue" data-theme-file="../assets/css/e-commerce/theme/blue.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-purple" data-theme="purple" data-theme-file="../assets/css/e-commerce/theme/purple.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-indigo" data-theme="indigo" data-theme-file="../assets/css/e-commerce/theme/indigo.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Indigo" data-original-title="" title="">&nbsp;</a></li>
-				<li><a href="javascript:;" class="bg-black" data-theme="black" data-theme-file="../assets/css/e-commerce/theme/black.min.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black" data-original-title="" title="">&nbsp;</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- end theme-panel -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{% static 'assets/js/e-commerce/app.min.js' %}"></script>
-	<!-- ================== END BASE JS ================== -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Autima - Car Accessories Shop HTML Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+
+     <!-- CSS 
+    ========================= -->
+     <!--bootstrap min css-->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <!--slick min css-->
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <!--font awesome css-->
+    <link rel="stylesheet" href="{% static 'assets/css/font.awesome.css' %}">
+    <!--ionicons min css-->
+    <link rel="stylesheet" href="{% static 'assets/css/ionicons.min.css' %}">
+    <!--animate css-->
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.min.css' %}">
+    <!--slinky menu css-->
+    <link rel="stylesheet" href="{% static 'assets/css/slinky.menu.css' %}">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+    
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    
+    <!--modernizr min js here-->
+    <script src="{% static 'assets/js/vendor/modernizr-3.7.1.min.js' %}"></script>
+
+</head>
+
+<body>
+
+    <!-- Main Wrapper Start -->
+    <!--header area start-->
+    <header class="header_area">
+        <!--header top start-->
+        {% include "client/headerTop.html" %}
+        <!--header top start-->
+        
+        <!--header middel start-->
+        {% include "client/headerMiddle.html" %}
+        <!--header middel end-->
+        
+        <!--header bottom satrt-->
+        {% include "client/headerBottom.html" %}
+        <!--header bottom end-->
+    </header>
+    <!--header area end-->
+
+
+    <!--Offcanvas menu area start-->
+    <div class="off_canvars_overlay"></div>
+    <div class="Offcanvas_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="canvas_open">
+                        <span>MENU</span>
+                        <a href="javascript:void(0)"><i class="ion-navicon"></i></a>
+                    </div>
+                    <div class="Offcanvas_menu_wrapper">
+
+                        <div class="canvas_close">
+                            <a href="#"><i class="ion-android-close"></i></a>
+                        </div>
+
+
+                        <div class="top_right text-right">
+                            <ul>
+                                <li class="top_links"><a href="#"><i class="ion-android-person"></i> My Account<i class="ion-ios-arrow-down"></i></a>
+                                    <ul class="dropdown_links">
+                                        <li><a href="checkout.html">Checkout </a></li>
+                                        <li><a href="my-account.html">My Account </a></li>
+                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                    </ul>
+                                </li>
+                                <li class="language"><a href="#"><img src="{% static 'assets/img/logo/language.png' %}" alt="">en-gb<i class="ion-ios-arrow-down"></i></a>
+                                    <ul class="dropdown_language">
+                                        <li><a href="#"><img src="{% static 'assets/img/logo/language.png' %}" alt=""> English</a></li>
+                                        <li><a href="#"><img src="{% static 'assets/img/logo/language2.png' %}" alt=""> Germany</a></li>
+                                    </ul>
+                                </li>
+                                <li class="currency"><a href="#">$ USD<i class="ion-ios-arrow-down"></i></a>
+                                    <ul class="dropdown_currency">
+                                        <li><a href="#">EUR – Euro</a></li>
+                                        <li><a href="#">GBP – British Pound</a></li>
+                                        <li><a href="#">INR – India Rupee</a></li>
+                                    </ul>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <div class="Offcanvas_follow">
+                            <label>Follow Us:</label>
+                            <ul class="follow_link">
+                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                                <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                                <li><a href="#"><i class="ion-social-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="search-container">
+                            <form action="#">
+                                <div class="search_box">
+                                    <input placeholder="Search entire store here ..." type="text">
+                                    <button type="submit"><i class="ion-ios-search-strong"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="menu" class="text-left ">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children">
+                                    <a href="#">Home</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">Home 1</a></li>
+                                        <li><a href="index-2.html">Home 2</a></li>
+                                        <li><a href="index-3.html">Home 3</a></li>
+                                        <li><a href="index-4.html">Home 4</a></li>
+                                        <li><a href="index-5.html">Home 5</a></li>
+                                        <li><a href="index-6.html">Home 6</a></li>
+                                        <li><a href="index-7.html">Home 7</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Shop Layouts</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="shop.html">shop</a></li>
+                                                <li><a href="shop-fullwidth.html">Full Width</a></li>
+                                                <li><a href="shop-fullwidth-list.html">Full Width list</a></li>
+                                                <li><a href="shop-right-sidebar.html">Right Sidebar </a></li>
+                                                <li><a href="shop-right-sidebar-list.html"> Right Sidebar list</a></li>
+                                                <li><a href="shop-list.html">List View</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">other Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="cart.html">cart</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="my-account.html">my account</a></li>
+                                                <li><a href="404.html">Error 404</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Product Types</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="product-details.html">product details</a></li>
+                                                <li><a href="product-sidebar.html">product sidebar</a></li>
+                                                <li><a href="product-grouped.html">product grouped</a></li>
+                                                <li><a href="variable-product.html">product variable</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog.html">blog</a></li>
+                                        <li><a href="blog-details.html">blog details</a></li>
+                                        <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
+                                        <li><a href="blog-sidebar.html">blog sidebar</a></li>
+                                    </ul>
+
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">pages </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="services.html">services</a></li>
+                                        <li><a href="faq.html">Frequently Questions</a></li>
+                                        <li><a href="login.html">login</a></li>
+                                        <li><a href="compare.html">compare</a></li>
+                                        <li><a href="privacy-policy.html">privacy policy</a></li>
+                                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="my-account.html">my account</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="about.html">About Us</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="contact.html"> Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--Offcanvas menu area end-->
+
+    <!--slider area start-->
+    {% include "client/sliderArea.html" %}
+    <!--slider area end-->
+
+    <!--shipping area start-->
+    {% include "client/shippingArea.html" %}
+    <!--shipping area end-->
+    
+    <!--product area start-->
+    {% include "client/productArea1.html" %}
+    <!--product area end-->
+
+    <!--featured categories area start-->
+    {% include "client/featuredCategoriesArea.html" %}
+    <!--featured categories area end-->
+
+    <!--small product area start-->
+    {% include "client/smallProductArea1.html" %}
+    <!--small product area end-->
+
+    <!--small product area start-->
+    {% include "client/smallProductArea2.html" %}
+    <!--small product area end-->
+
+    <!--banner area start-->
+    {% include "client/bannerArea.html" %}
+    <!--banner area end-->
+
+    <!--product area start-->
+    {% include "client/productArea2.html" %}
+    <!--product area end-->
+
+
+    <!--brand area start-->
+    {% include "client/brandArea.html" %}
+    <!--brand area end-->
+
+
+    <!--custom product area-->
+    <section class="custom_product_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <!--featured product area-->
+                    {% include "client/featuredProductArea.html" %}
+                    <!--featured product end-->
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <!--mostview product area-->
+                    {% include "client/mostViewProductArea.html" %}
+                    <!--mostview product end-->
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <!--bestSeller product area-->
+                    {% include "client/bestSellerProductArea.html" %}
+                    <!--bestSeller product end-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--custom product end-->
+    
+    <!--call to action start-->
+   {% include "client/callToActionArea.html" %}
+    <!--call to action end-->
+
+    <!--footer area start-->
+    {% include "client/footerArea.html" %}
+    <!--footer area end-->
+
+
+    <!-- modal area start-->
+    <div class="modal fade" id="modal_box" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal_body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-12">
+                                <div class="modal_tab">
+                                    <div class="tab-content product-details-large">
+                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="{% static 'assets/img/product/product1.jpg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab2" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="{% static 'assets/img/product/product2.jpg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab3" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="{% static 'assets/img/product/product3.jpg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab4" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="{% static 'assets/img/product/product5.jpg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal_tab_button">
+                                        <ul class="nav product_navactive owl-carousel" role="tablist">
+                                            <li>
+                                                <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="{% static 'assets/img/product/product1.jpg' %}" alt=""></a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="{% static 'assets/img/product/product2.jpg' %}" alt=""></a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="{% static 'assets/img/product/product3.jpg' %}" alt=""></a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="{% static 'assets/img/product/product5.jpg' %}" alt=""></a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-12">
+                                <div class="modal_right">
+                                    <div class="modal_title mb-10">
+                                        <h2>Handbag feugiat</h2>
+                                    </div>
+                                    <div class="modal_price mb-10">
+                                        <span class="new_price">$64.99</span>
+                                        <span class="old_price" >$78.99</span>
+                                    </div>
+                                    <div class="modal_description mb-15">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>
+                                    </div>
+                                    <div class="variants_selects">
+                                        <div class="variants_size">
+                                            <h2>size</h2>
+                                            <select class="select_option">
+                                                <option selected value="1">s</option>
+                                                <option value="1">m</option>
+                                                <option value="1">l</option>
+                                                <option value="1">xl</option>
+                                                <option value="1">xxl</option>
+                                            </select>
+                                        </div>
+                                        <div class="variants_color">
+                                            <h2>color</h2>
+                                            <select class="select_option">
+                                                <option selected value="1">purple</option>
+                                                <option value="1">violet</option>
+                                                <option value="1">black</option>
+                                                <option value="1">pink</option>
+                                                <option value="1">orange</option>
+                                            </select>
+                                        </div>
+                                        <div class="modal_add_to_cart">
+                                            <form action="#">
+                                                <input min="1" max="100" step="2" value="1" type="number">
+                                                <button type="submit">add to cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal_social">
+                                        <h2>Share this product</h2>
+                                        <ul>
+                                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                            <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal area end-->
+
+
+
+    <!--news letter popup start-->
+    <div class="newletter-popup">
+        <div id="boxes" class="newletter-container">
+            <div id="dialog" class="window">
+                <div id="popup2">
+                    <span class="b-close"><span>close</span></span>
+                </div>
+                <div class="box">
+                    <div class="newletter-title">
+                        <h2>Newsletter</h2>
+                    </div>
+                    <div class="box-content newleter-content">
+                        <label class="newletter-label">Enter your email address to subscribe our notification of our new post &amp; features by email.</label>
+                        <div id="frm_subscribe">
+                            <form name="subscribe" id="subscribe_popup">
+                                <!-- <span class="required">*</span><span>Enter you email address here...</span>-->
+                                <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail" placeholder="Enter you email address here...">
+                                <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname">
+                                <div id="notification"></div>
+                                <a class="theme-btn-outlined" onclick="email_subscribepopup()"><span>Subscribe</span></a>
+                            </form>
+                            <div class="subscribe-bottom">
+                                <input type="checkbox" id="newsletter_popup_dont_show_again">
+                                <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>
+                            </div>
+                        </div>
+                        <!-- /#frm_subscribe -->
+                    </div>
+                    <!-- /.box-content -->
+                </div>
+            </div>
+
+        </div>
+        <!-- /.box -->
+    </div>
+
+    <!--news letter popup start-->
+
+
+
+
+<!-- JS
+============================================ -->
+<!--jquery min js-->
+<script src="{% static 'assets/js/vendor/jquery-3.4.1.min.js' %}"></script>
+<!--popper min js-->
+<script src="{% static 'assets/js/popper.js' %}"></script>
+<!--bootstrap min js-->
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<!--owl carousel min js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!--slick min js-->
+<script src="{% static 'assets/js/slick.min.js' %}"></script>
+<!--magnific popup min js-->
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+<!--jquery countdown min js-->
+<script src="{% static 'assets/js/jquery.countdown.js' %}"></script>
+<!--jquery ui min js-->
+<script src="{% static 'assets/js/jquery.ui.js' %}"></script>
+<!--jquery elevatezoom min js-->
+<script src="{% static 'assets/js/jquery.elevatezoom.js' %}"></script>
+<!--isotope packaged min js-->
+<script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+<!--slinky menu js-->
+<script src="{% static 'assets/js/slinky.menu.js' %}"></script>
+<!-- Plugins JS -->
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+
+<!-- Main JS -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+
+
 </body>
+
 </html>
