@@ -1,0 +1,481 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{product.name}}</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="{% static 'assets/css/e-commerce/app.min.css' %}" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+</head>
+<body>
+	<!-- BEGIN #page-container -->
+	<div id="page-container" class="fade">
+		<!-- BEGIN #top-nav -->
+		{% include "client/topNav.html" %}
+		<!-- END #top-nav -->
+		
+		<!-- BEGIN #header -->
+        {% include "client/header.html" %}
+		<!-- END #header -->
+		
+		<!-- BEGIN #product -->
+		<div id="product" class="section-container p-t-20">
+			<!-- BEGIN container -->
+			<div class="container">
+				<!-- BEGIN breadcrumb -->
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Mobile Phone</a></li>
+					<li class="breadcrumb-item"><a href="#">Apple</a></li>
+					<li class="breadcrumb-item active">iPhone 6S Plus</li>
+				</ul>
+				<!-- END breadcrumb -->
+				<!-- BEGIN product -->
+				<div class="product">
+					<!-- BEGIN product-detail -->
+					<div class="product-detail">
+						<!-- BEGIN product-image -->
+						<div class="product-image">
+							<!-- BEGIN product-thumbnail -->
+							<div class="product-thumbnail">
+							  <ul class="product-thumbnail-list">
+							    {% for image in images %}
+							    <li class="active"><a href="#" data-click="show-main-image" data-url="{{image.img.url}}"><img src="{{image.img.url}}" alt="" /></a></li>
+							    {% endfor %}
+								</ul>
+							</div>
+							<!-- END product-thumbnail -->
+							<!-- BEGIN product-main-image -->
+							<div class="product-main-image" data-id="main-image">
+								<img src="{{product.picture.url}}" alt="" />
+							</div>
+							<!-- END product-main-image -->
+						</div>
+						<!-- END product-image -->
+						<!-- BEGIN product-info -->
+						<div class="product-info">
+							<!-- BEGIN product-info-header -->
+                         
+							<div class="product-info-header">
+                                
+							  <h1 class="product-title">
+                                  {% if product.discount > 0 %}
+                                  <span class="badge bg-primary">{{product.discount}}%
+                                      {% endif %}
+                                  </span>{{product.name}} </h1>
+                              
+                              <!--{{product.category}}-->
+							<!--	<ul class="product-category">
+									<li><a href="#">iPhone</a></li>
+									<li>/</li>
+									<li><a href="#">mobile phone</a></li>
+									<li>/</li>
+									<li><a href="#">electronics</a></li>
+									<li>/</li>
+									<li><a href="#">lifestyle</a></li>
+								</ul>-->
+							</div>
+                            
+							<!-- END product-info-header -->
+							<!-- BEGIN product-warranty -->
+							<div class="product-warranty">
+                                {% if product.number > 0 %}
+                                <div class="pull-right">Availability: In stock</div>
+                                {% else %}
+                                <div class="pull-right"><font color="red">Availability: Not in stock </font></div>
+                                {% endif %}
+								<div><b>1 Year</b> Local Manufacturer Warranty</div>
+							</div>
+							<!-- END product-warranty -->
+							<!-- BEGIN product-info-list -->
+                        <!--    {{product.hitlist}}   -->
+						<!--	<ul class="product-info-list">
+								<li><i class="fa fa-circle"></i> 5.5" Retina HD Display with 3D Touch</li>
+								<li><i class="fa fa-circle"></i> Fingerprint-resistant oleophobic coating</li>
+								<li><i class="fa fa-circle"></i> A9 chip with 64-bit</li>
+								<li><i class="fa fa-circle"></i> Ultrafast 4G LTE Advanced wireless</li>
+								<li><i class="fa fa-circle"></i> New 12-megapixel iSight camera</li>
+								<li><i class="fa fa-circle"></i> 4k video recording</li>
+								<li><i class="fa fa-circle"></i> iOS 9 with Touch ID and Apple Pay</li>
+							</ul>-->
+							<!-- END product-info-list -->
+							<!-- BEGIN product-social -->
+						<!--	<div class="product-social">
+								<ul>
+									<li><a href="javascript:;" class="facebook" data-toggle="tooltip" data-trigger="hover" data-title="Facebook" data-placement="top"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="javascript:;" class="twitter" data-toggle="tooltip" data-trigger="hover" data-title="Twitter" data-placement="top"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="javascript:;" class="google-plus" data-toggle="tooltip" data-trigger="hover" data-title="Google Plus" data-placement="top"><i class="fab fa-google-plus-g"></i></a></li>
+									<li><a href="javascript:;" class="whatsapp" data-toggle="tooltip" data-trigger="hover" data-title="Whatsapp" data-placement="top"><i class="fab fa-whatsapp"></i></a></li>
+									<li><a href="javascript:;" class="tumblr" data-toggle="tooltip" data-trigger="hover" data-title="Tumblr" data-placement="top"><i class="fab fa-tumblr"></i></a></li>
+								</ul>
+							</div>-->
+							<!-- END product-social -->
+							<!-- BEGIN product-purchase-container -->
+							<div class="product-purchase-container">
+								<!--<div class="product-discount">
+                                    <span class="discount">$890</span>
+								</div>-->
+                                {% if product.discount > 0 %}
+                                <div class="product-discount">
+                                    <span class="discount">${{product.price}}</span>
+                                </div>
+                                <div class="product-price">
+                                    <div class="price">${{product.price}}*(100-{{product.discount}})/100</div>
+                                </div>
+                                {% else %}
+                                <div class="product-price">
+                                    <div class="price">${{product.price}}</div>
+                                </div>
+                                {% endif %}
+								
+								<a href="checkout_cart.html" class="btn btn-inverse btn-theme btn-lg width-200">ADD TO CART</a>
+							</div>
+							<!-- END product-purchase-container -->
+						</div>
+						<!-- END product-info -->
+					</div>
+					<!-- END product-detail -->
+					<!-- BEGIN product-tab -->
+					<div class="product-tab">
+						<!-- BEGIN #product-tab -->
+						<ul id="product-tab" class="nav nav-tabs">
+							<li class="nav-item"><a class="nav-link active" href="#product-desc" data-toggle="tab">Product Description</a></li>
+							<li class="nav-item"><a class="nav-link" href="#product-info" data-toggle="tab">Additional Information</a></li>
+							<li class="nav-item"><a class="nav-link" href="#product-reviews" data-toggle="tab">Rating & Reviews (5)</a></li>
+						</ul>
+						<!-- END #product-tab -->
+						<!-- BEGIN #product-tab-content -->
+						<div id="product-tab-content" class="tab-content">
+							<!-- BEGIN #product-desc -->
+							<div class="tab-pane fade active show" id="product-desc">
+                            <!-- BEGIN product-desc -->
+                                {{product.description}}
+                             <!--   <div class="product-desc">
+									<div class="image">
+										<img src="../assets/img/product/product-main.jpg" alt="" />
+									</div>
+									<div class="desc">
+										<h4>iPhone 6s</h4>
+										<p>
+											The moment you use iPhone 6s, you know you’ve never felt anything like it. With a single press, 3D Touch lets you do more than ever before. Live Photos bring your memories to life in a powerfully vivid way. And that’s just the beginning. Take a deeper look at iPhone 6s, and you’ll find innovation on every level.
+										</p>
+									</div>
+								</div> -->
+								<!-- END product-desc -->
+								<!-- BEGIN product-desc -->
+							<!--	<div class="product-desc right">
+									<div class="image">
+										<img src="../assets/img/product/product-3dtouch.jpg" alt="" />
+									</div>
+									<div class="desc">
+										<h4>3D Touch</h4>
+										<p>
+											The original iPhone introduced the world to Multi-Touch, forever changing the way people experience technology. With 3D Touch, you can do things that were never possible before. It senses how deeply you press the display, letting you do all kinds of essential things more quickly and simply. And it gives you real-time feedback in the form of subtle taps from the all-new Taptic Engine.
+										</p>
+									</div>
+								</div> -->
+								<!-- END product-desc -->
+								<!-- BEGIN product-desc -->
+                            <!--	<div class="product-desc">
+									<div class="image">
+										<img src="../assets/img/product/product-cameras.jpg" alt="" />
+									</div>
+									<div class="desc">
+										<h4>Cameras</h4>
+										<p>
+											The 12-megapixel iSight camera captures sharp, detailed photos. It takes brilliant 4K video, up to four times the resolution of 1080p HD video. iPhone 6s also takes selfies worthy of a self-portrait with the new 5-megapixel FaceTime HD camera. And it introduces Live Photos, a new way to relive your favorite memories. It captures the moments just before and after your picture and sets it in motion with just the press of a finger.
+										</p>
+									</div>
+								</div>-->
+								<!-- END product-desc -->
+								<!-- BEGIN product-desc -->
+							<!--	<div class="product-desc right">
+									<div class="image">
+										<img src="../assets/img/product/product-technology.jpg" alt="" />
+									</div>
+									<div class="desc">
+										<h4>Technology</h4>
+										<p>
+											iPhone 6s is powered by the custom-designed 64-bit A9 chip. It delivers performance once found only in desktop computers. You’ll experience up to 70 percent faster CPU performance, and up to 90 percent faster GPU performance for all your favorite graphics-intensive games and apps.
+										</p>
+									</div>
+								</div>-->
+								<!-- END product-desc -->
+								<!-- BEGIN product-desc -->
+							<!--	<div class="product-desc">
+									<div class="image">
+										<img src="../assets/img/product/product-design.jpg" alt="" />
+									</div>
+									<div class="desc">
+										<h4>Design</h4>
+										<p>
+											Innovation isn’t always obvious to the eye, but look a little closer at iPhone 6s and you’ll find it’s been fundamentally improved. The enclosure is made from a new alloy of 7000 Series aluminum — the same grade used in the aerospace industry. The cover glass is the strongest, most durable glass used in any smartphone. And a new rose gold finish joins space gray, silver, and gold.
+										</p>
+									</div>
+								</div>-->
+								<!-- END product-desc -->
+							</div>
+							<!-- END #product-desc -->
+							<!-- BEGIN #product-info -->
+							<div class="tab-pane fade" id="product-info">
+								<!-- BEGIN table-responsive -->
+								<div class="table-responsive">
+								  <!-- BEGIN table-product -->
+									<table class="table table-product table-striped">
+										<thead>
+											<tr>
+												<th></th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+										  {% for key,val in product.information.content.items %}
+										  <tr>
+										    <td class="field">{{key}}</td>
+										    <td>
+										      {{val}}
+										    </td>
+										  </tr>
+										  {% endfor %}
+										</tbody>
+									</table>
+									<!-- END table-product -->
+								</div>
+								<!-- END table-responsive -->
+							</div>
+							<!-- END #product-info -->
+							<!-- BEGIN #product-reviews -->
+							<div class="tab-pane fade" id="product-reviews">
+								<!-- BEGIN row -->
+								<div class="row row-space-30">
+									<!-- BEGIN col-7 -->
+									<div class="col-md-7 mb-4 mb-lg-0">
+										<!-- BEGIN review -->
+										{% for coment in comments %}
+										<div class="review">
+											<div class="review-info">
+												<div class="review-icon"><img src="../assets/img/user/user-1.jpg" alt="" /></div>
+												<div class="review-rate">
+													<ul class="review-star">
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class=""><i class="far fa-star"></i></li>
+													</ul>
+													(4/5)
+												</div>
+												<div class="review-name">{{coment.name}}</div>
+												<div class="review-date">{{coment.date}}</div>
+											</div>
+											<div class="review-title">
+												{{coment.title}}
+											</div>
+											<div class="review-message">
+												{{coment.comment}}
+											</div>
+										</div>
+										<!-- END review -->
+										{% endfor %}
+										<!-- BEGIN review -->
+									<!-- 	<div class="review">
+											<div class="review-info">
+												<div class="review-icon"><img src="../assets/img/user/user-2.jpg" alt="" /></div>
+												<div class="review-rate">
+													<ul class="review-star">
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class=""><i class="far fa-star"></i></li>
+														<li class=""><i class="far fa-star"></i></li>
+													</ul>
+													(3/5)
+												</div>
+												<div class="review-name">George</div>
+												<div class="review-date">24/05/2016 8:40am</div>
+											</div>
+											<div class="review-title">
+												When I buy iPhone from apple.com, is it tied to a carrier or does it come “unlocked”?
+											</div>
+											<div class="review-message">
+												In mauris leo, maximus at pellentesque vel, pharetra vel risus. Aenean in semper velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi volutpat mattis neque, at molestie tellus ultricies quis. Ut lobortis odio nec nunc ullamcorper, vitae faucibus augue semper. Sed luctus lobortis nulla ac volutpat. Mauris blandit scelerisque sem.
+											</div>
+										</div>-->
+										<!-- END review -->
+										<!-- BEGIN review -->
+									<!-- 	<div class="review">
+											<div class="review-info">
+												<div class="review-icon"><img src="../assets/img/user/user-3.jpg" alt="" /></div>
+												<div class="review-rate">
+													<ul class="review-star">
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+													</ul>
+													(5/5)
+												</div>
+												<div class="review-name">Steve</div>
+												<div class="review-date">23/05/2016 8:40am</div>
+											</div>
+											<div class="review-title">
+												Where is the iPhone Upgrade Program available?
+											</div>
+											<div class="review-message">
+												Duis ut nunc sem. Integer efficitur, justo sit amet feugiat hendrerit, arcu nisl elementum dui, in ultricies erat quam at mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec ultrices tellus. Mauris elementum venenatis volutpat.
+											</div>
+										</div>-->
+										<!-- END review -->
+										<!-- BEGIN review -->
+									<!-- 	<div class="review">
+											<div class="review-info">
+												<div class="review-icon"><img src="../assets/img/user/user-4.jpg" alt="" /></div>
+												<div class="review-rate">
+													<ul class="review-star">
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class=""><i class="far fa-star"></i></li>
+														<li class=""><i class="far fa-star"></i></li>
+														<li class=""><i class="far fa-star"></i></li>
+													</ul>
+													(2/5)
+												</div>
+												<div class="review-name">Alfred</div>
+												<div class="review-date">23/05/2016 10.02am</div>
+											</div>
+											<div class="review-title">
+												Can I keep my current service plan if I choose the iPhone Upgrade Program?
+											</div>
+											<div class="review-message">
+												Donec vel fermentum quam. Vivamus scelerisque enim eget tristique auctor. Vivamus tempus, turpis iaculis tempus egestas, leo augue hendrerit tellus, et efficitur neque massa at neque. Aenean efficitur eleifend orci at ornare.
+											</div>
+										</div>-->
+										<!-- END review -->
+										<!-- BEGIN review -->
+									<!-- 	<div class="review">
+											<div class="review-info">
+												<div class="review-icon"><img src="../assets/img/user/user-5.jpg" alt="" /></div>
+												<div class="review-rate">
+													<ul class="review-star">
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+														<li class="active"><i class="fa fa-star"></i></li>
+													</ul>
+													(5/5)
+												</div>
+												<div class="review-name">Edward</div>
+												<div class="review-date">22/05/2016 9.30pm</div>
+											</div>
+											<div class="review-title">
+												I have an existing carrier contract or installment plan. Can I purchase with the iPhone Upgrade Program
+											</div>
+											<div class="review-message">
+												Aliquam consequat ut turpis non interdum. Integer blandit erat nec sapien sollicitudin, a fermentum dui venenatis. Nullam consequat at enim et aliquet. Cras mattis turpis quis eros volutpat tristique vel a ligula. Proin aliquet leo mi, et euismod metus placerat sit amet.
+											</div>
+										</div>-->
+										<!-- END review -->
+									</div>
+									<!-- END col-7 -->
+									<!-- BEGIN col-5 -->
+									<div class="col-md-5">
+										<!-- BEGIN review-form -->
+										<div class="review-form">
+										  <form action="/saveReview/" name="review_form" method="POST">
+										    {% csrf_token %}
+												<h2>Write a review</h2>
+												<div class="form-group">
+													<label for="name">Name <span class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="name" name="user"/>
+												</div>
+												<div class="form-group">
+													<label for="email">Title <span class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="email" name="title"/>
+												</div>
+												<div class="form-group">
+													<label for="review">Review <span class="text-danger">*</span></label>
+													<textarea class="form-control" rows="8" id="review" name="comment"></textarea>
+												</div>
+												<div class="form-group">
+													<label for="email">Rating  <span class="text-danger">*</span></label>
+													<div class="rating rating-selection" data-rating="true" data-target="rating">
+														<i class="far fa-star" data-value="2"></i>
+														<i class="far fa-star" data-value="4"></i>
+														<i class="far fa-star" data-value="6"></i>
+														<i class="far fa-star" data-value="8"></i>
+														<i class="far fa-star" data-value="10"></i>
+														<span class="rating-comment">
+															<span class="rating-comment-tooltip">Click to rate</span>
+														</span>
+													</div>
+													<select  class="hide" name="rate">
+														<option value="2">2</option>
+														<option value="4">4</option>
+														<option value="6">6</option>
+														<option value="8">8</option>
+														<option value="10">10</option>
+													</select>
+												</div>
+												<input value="{{product.code}}" name="code" class="hide"/>
+												<button type="submit" class="btn btn-inverse btn-theme btn-lg">Submit Review</button>
+											</form>
+										</div>
+										<!-- END review-form --> 
+									</div>
+									<!-- END col-5 -->
+								</div>
+								<!-- END row -->
+							</div>
+							<!-- END #product-reviews -->
+						</div>
+						<!-- END #product-tab-content -->
+					</div>
+					<!-- END product-tab -->
+				</div>
+				<!-- END product -->
+				<!-- BEGIN similar-product -->
+                {% include "client/similarProducts.html" %}
+				<!-- END similar-product -->
+			</div>
+			<!-- END container -->
+		</div>
+		<!-- END #product -->
+		
+		<!-- BEGIN #footer -->
+        {% include "client/footer.html" %}
+		<!-- END #footer -->
+		
+		<!-- BEGIN #footer-copyright -->
+		<div id="footer-copyright" class="footer-copyright">
+			<!-- BEGIN container -->
+			<div class="container">
+				<div class="payment-method">
+					<img src="../assets/img/payment/payment-method.png" alt="" />
+				</div>
+				<div class="copyright">
+					<!--Copyright &copy; 2019 SeanTheme. All rights reserved.-->
+				</div>
+			</div>
+			<!-- END container -->
+		</div>
+		<!-- END #footer-copyright -->
+	</div>
+	<!-- END #page-container -->
+
+	<!-- begin theme-panel -->
+	
+	<!-- end theme-panel -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static 'assets/js/e-commerce/app.min.js' %}"></script>
+	<!-- ================== END BASE JS ================== -->
+</body>
+</html>
