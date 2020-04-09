@@ -13,13 +13,14 @@
 
                         <div class="single-zoom-thumb">
                             <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
+                                {% for image in images %}
                                 <li>
-                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{% static 'assets/img/product/product8.jpg' %}" data-zoom-image="{% static 'assets/img/product/product8.jpg' %}">
-                                        <img src="{% static 'assets/img/product/product8.jpg' %}" alt="zo-th-1" />
+                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{image.img.url}}" data-zoom-image="{{image.img.url}}">
+                                        <img src="{{image.img.url}}" alt="zo-th-1" />
                                     </a>
-
                                 </li>
-                                <li>
+                                {% endfor %}
+                                <!--<li>
                                     <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{% static 'assets/img/product/product9.jpg' %}" data-zoom-image="{% static 'assets/img/product/product9.jpg' %}">
                                         <img src="{% static 'assets/img/product/product9.jpg' %}" alt="zo-th-1" />
                                     </a>
@@ -36,7 +37,7 @@
                                         <img src="{% static 'assets/img/product/product13.jpg' %}" alt="zo-th-1" />
                                     </a>
 
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                     </div>
@@ -45,7 +46,7 @@
                     <div class="product_d_right">
                         <form action="#">
 
-                            <h1>Nonstick Dishwasher PFOA</h1>
+                            <h1>{{product.name}}</h1>
                             <div class="product_nav">
                                 <ul>
                                     <li class="prev"><a href="product-details.html"><i class="fa fa-angle-left"></i></a></li>
@@ -69,7 +70,7 @@
 
                             </div>
                             <div class="product_desc">
-                                <p>eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in </p>
+                                <p>{{product.summary}}</p>
                             </div>
                             <div class="product_variant color">
                                 <h3>Available Options</h3>
