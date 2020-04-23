@@ -20,7 +20,7 @@ class Product(models.Model):
     name              = models.TextField(blank=True,null=True)
     code              = models.CharField(max_length=1024,primary_key=True)
     picture           = models.ImageField(upload_to=upload_location,null=True,blank=True)
-    numberInstock     = models.IntegerField(default = 0)
+    numberInStock     = models.IntegerField(default = 0)
     numberSold        = models.IntegerField(default = 0)
     numberVisited     = models.IntegerField(default = 0)
     description       = models.TextField(blank=True,null=True)
@@ -38,9 +38,9 @@ class Product(models.Model):
     discountEndTime   = models.TimeField(blank=True,null=True)
     information       = models.ForeignKey(Template,on_delete=models.CASCADE)
     # these are for casting 
-    firstUnit         = models.DecimalField(decimal_places=1,max_digits=10) 
-    secondUnit        = models.DecimalField(decimal_places=1,max_digits=10)
-    thirdUnit         = models.DecimalField(decimal_places=1,max_digits=10) 
+    priceForPallet         = models.DecimalField(decimal_places=2,max_digits=1000, blank=True) 
+    priceForBox            = models.DecimalField(decimal_places=2,max_digits=1000, blank=True)
+    priceForNum            = models.DecimalField(decimal_places=2,max_digits=1000, blank=True)
 
     def __str__(self):
         return self.code

@@ -15,9 +15,9 @@
 			  crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-	<link href="{% static 'assets/css/material/app.min.css' %}" rel="stylesheet" />
-	<link href="{% static 'assets/plugins/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet" />
-	<link href="{% static 'assets/plugins/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+	<link href="{% static 'assets1/css/material/app.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets1/plugins/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets1/plugins/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
 	<!-- ================== END BASE CSS STYLE ================== -->
 </head>
 <body>
@@ -181,6 +181,9 @@
 					{% endfor %}
 				      </select>
 				      <br>
+				      <input type="number" class="form-control m-b-12" placeholder="biggest unit" name="priceForPallet"/>
+				      <input type="number" class="form-control m-b-12" placeholder="smaller unit" name="priceForBox"/>
+				      <input type="number" class="form-control m-b-12" placeholder="smallest unit" name="priceForNum"/>
                                       <textarea class="textarea form-control" id="wysihtml5"  rows="12" name='description' placeholder= "{{file}}"></textarea>
 				      <button type="submit" class="btn btn-sm btn-primary m-r-12">Save</button>
 				      </div>
@@ -202,14 +205,14 @@
 	<!-- end page container -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{% static 'assets/js/app.min.js' %}"></script>
-	<script src="{% static 'assets/js/theme/material.min.js' %}"></script>
-	<script src="{% static 'assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js' %}"></script>
-	<script src="{% static 'assets/js/demo/form-wysiwyg.demo.js' %}"></script>
-	<script src="{% static 'assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
-	<script src="{% static 'assets/plugins/moment/min/moment.min.js' %}"></script>
-	<script src="{% static 'assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
-	<script src="{% static 'assets/plugins/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+	<script src="{% static 'assets1/js/app.min.js' %}"></script>
+	<script src="{% static 'assets1/js/theme/material.min.js' %}"></script>
+	<script src="{% static 'assets1/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js' %}"></script>
+	<script src="{% static 'assets1/js/demo/form-wysiwyg.demo.js' %}"></script>
+	<script src="{% static 'assets1/plugins/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+	<script src="{% static 'assets1/plugins/moment/min/moment.min.js' %}"></script>
+	<script src="{% static 'assets1/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+	<script src="{% static 'assets1/plugins/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
 	<!-- ================== END BASE JS ================== -->
 </body>
 </html>

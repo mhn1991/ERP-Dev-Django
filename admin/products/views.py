@@ -24,33 +24,40 @@ def getTemplate(request, *args,**kwargs):
 @login_required
 def addP(request, *args,**kwargs):
     if request.method == "POST":
-        title = request.POST['title']
-        code = request.POST['code']
-        price = request.POST['price']
-        number = request.POST['number']
-        category = request.POST['category']
-        discount = request.POST['discount']
-        files = request.FILES.getlist('file')
-        description = request.POST['description']
-        user = request.user.username
+        title             = request.POST['title']
+        code              = request.POST['code']
+        price             = request.POST['price']
+        number            = request.POST['number']
+        category          = request.POST['category']
+        discount          = request.POST['discount']
+        files             = request.FILES.getlist('file')
+        description       = request.POST['description']
+        user              = request.user.username
         discountStartDate = request.POST['startDate']
-        discountEndDate = request.POST['endDate']
-        template = request.POST['template']
+        discountEndDate   = request.POST['endDate']
+        template          = request.POST['template']
+        priceForPallet    = request.POST['priceForPallet']
+        priceForBox       = request.POST['priceForBox']
+        priceForNum       = request.POST['priceForNum']
+        print(discountStartDate)
         # saving in the db
         p = Product()
-        p.name = title
-        p.code = code
-        p.price = price
-        p.category = Category.objects.get(category__exact=category)
-        p.description = description
-        p.rates = 4
-        p.picture = files[0]
-        p.editor = user
-        p.number = number
-        p.discount = discount
-        p.discountStartDate = discountStartDate
-        p.discountEndDate = discountEndDate
-        p.information = Template.objects.get(name=template)
+        p.name              = title
+        p.code              = code
+        p.price             = price
+        p.category          = Category.objects.get(category__exact=category)
+        p.description       = description
+        #p.rates = 4
+        p.picture           = files[0]
+        p.editor            = user
+        p.numberInStock     = number
+        p.discount          = discount
+        #p.discountStartDate = discountStartDate
+        #p.discountEndDate   = discountEndDate
+        p.priceForPallet    = priceForPallet
+        p.priceForBox       = priceForBox 
+        p.priceForNum       = priceForNum
+        p.information       = Template.objects.get(name=template)
         p.save()
         for f in files:
             instance = Images(img=f,code=p)

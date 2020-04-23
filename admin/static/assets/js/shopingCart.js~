@@ -1,0 +1,85 @@
+function addToCart(name,code,price,image,tiles,box,pallet){
+    var cookies = document.cookie.split(";");
+    // we don't have cookie yet 
+    if(decodeURIComponent(cookies[0].split("=")[1]) == "undefined"){
+	//console.log(code); 
+	var json= {"items" :[{"name": name,"code":code,"price":price,"image":image,"tiles":tiles,"box":box,"pallet":pallet}]};
+	json = JSON.stringify(json);
+	setCookie(json);
+	makeItem(name,image,code,tiles,box,pallet);
+	
+    }else if (decodeURIComponent(cookies[0].split("=")[1]) != "undefined"){
+	var json = JSON.parse(decodeURIComponent(cookies[0].split("=")[1]).split(";")[0]);
+	for each(item in items){
+	    if (document.getElementById(code) == null){
+		makeItem(name,image,code,tiles,box,pallet);
+	    }
+	} 
+	if(json['code'] == code && (json['tiles'] != tiles || json['box'] != box || json['pallet'] != pallet)){
+	    json['tiles'] = tiles;
+	    json['box'] = box;
+	    json['pallet'] = pallet;
+	    setCookie(JSON.stringify(json));
+	    updateQuantity(code,tiles,box,pallet);
+	}
+    }
+}
+
+
+
+function makeItem(name,image,code,tiles,box,pallet){
+    var card = document.getElementById("miniCard");
+    var cardItem = document.createElement("div");
+    cardItem.setAttribute("class","cart_item");
+    //cardItem.setAttribute("id",code);
+    var itemPic = document.createElement("div");
+    itemPic.setAttribute("class","cart_img");
+    var aTag = document.createElement("a");
+    aTag.href = "#";
+    var imgTag = document.createElement("img");
+    imgTag.src= image;
+    imgTag.height= 90;
+    imgTag.width=90;
+    var itemInfo = document.createElement("div");
+    itemInfo.setAttribute("class","cart_info");
+    var itemName = document.createElement("a");
+    var itemQuantity = document.createElement("span");
+    itemQuantity.setAttribute("class","quantity");
+    itemQuantity.setAttribute("id",code);
+    itemQuantity.innerText = "Tiles: "+tiles+" Box: "+box+" Pallet: "+pallet;
+    itemName.href = "#";
+    itemName.innerHTML = name;
+    itemInfo.appendChild(itemName);
+    itemInfo.appendChild(itemQuantity);
+    aTag.appendChild(imgTag);
+    itemPic.appendChild(aTag);
+    cardItem.appendChild(itemPic);
+    cardItem.appendChild(itemInfo);
+    card.appendChild(cardItem);
+}
+
+function setCookie(json){
+    var expirationDate = new Date();                                                                                                                                                                            
+    //expires in 10 years
+    expirationDate.setTime(expirationDate.getTime() + 3650 * 24* 60 * 60 * 1000);
+    var expires = "; expires=" + expirationDate.toUTCString();
+    //expires in 10 years
+    var maxAge = "; max-age=" + 3650*24*60*60;
+    //var cookie = JSON.stringify({"name": name,"code":code,"price":price,"image":image,"tiles":tiles,"box":box,"pallet":pallet});
+    cookie = json + expires + maxAge; 
+    $.cookie("basket",cookie);  
+}
+
+function addJson(json){
+    
+
+}
+
+
+var cookies = document.cookie.split(";");
+if(decodeURIComponent(cookies[0].split("=")[1]) != "undefined"){
+    var json = JSON.parse(decodeURIComponent(cookies[0].split("=")[1]).split(";")[0]);
+    $(document).ready(function(){
+	addToCart(json['name'],json['code'],json['price'],json['image'],json['tiles'],json['box'],json['pallet']);
+    });
+}
